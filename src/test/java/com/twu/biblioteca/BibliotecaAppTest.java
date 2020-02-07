@@ -12,6 +12,13 @@ class BibliotecaAppTest {
         String actualMessage = bibliotecaApp.showWelcomeMessage();
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
+    @Test
+    public void shouldDisplayAListOfBooks(){
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedMessage="1.Calculus Made Easy.2.Problem Solving Strategies";
+        String actualMessage=bibliotecaApp.displayBookList();
+        Assertions.assertEquals(expectedMessage,actualMessage);
+    }
 
 
 }
