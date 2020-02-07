@@ -9,15 +9,16 @@ class BibliotecaAppTest {
     public void shouldShowWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String expectedMessage = "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore";
-        String actualMessage = bibliotecaApp.showWelcomeMessage();
+        String actualMessage = bibliotecaApp.getWelcomeMessage();
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
+
     @Test
-    public void shouldDisplayAListOfBooks(){
+    public void shouldDisplayAListOfBooks() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMessage="1.Calculus Made Easy.2.Problem Solving Strategies";
-        String actualMessage=bibliotecaApp.displayBookList();
-        Assertions.assertEquals(expectedMessage,actualMessage);
+        String expectedMessage = "1.Calculus Made Easy.\n2.Problem Solving Strategies\n";
+        String actualMessage = bibliotecaApp.getBookList();
+        Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
 
