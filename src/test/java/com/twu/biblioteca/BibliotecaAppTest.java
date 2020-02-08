@@ -19,8 +19,12 @@ class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayAListOfBooks() {
+        Books calculusBook = mock(Books.class);
+        Books mathematicsBook = mock(Books.class);
+        when(calculusBook.getName()).thenReturn("Calculus Made Easy\n");
+        when(mathematicsBook.getName()).thenReturn("Problem Solving Strategies\n");
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMessage = "1.Calculus Made Easy.\n2.Problem Solving Strategies\n";
+        String expectedMessage = calculusBook.getName()+mathematicsBook.getName();
         String actualMessage = bibliotecaApp.getBookList();
         Assertions.assertEquals(expectedMessage, actualMessage);
     }

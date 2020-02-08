@@ -15,7 +15,7 @@ public class Books {
         return this.name + "|" + this.authorName + "|" + this.publicationYear + "\n";
     }
     public String getName(){
-        return this.name;
+        return this.name+"\n";
     }
 
 }

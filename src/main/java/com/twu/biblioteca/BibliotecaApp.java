@@ -21,6 +21,7 @@ public class BibliotecaApp {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         System.out.println(bibliotecaApp.getWelcomeMessage());
         System.out.println(bibliotecaApp.getBookList());
+        System.out.println(bibliotecaApp.getBooksDetails());
 
     }
 
@@ -31,7 +32,7 @@ public class BibliotecaApp {
 
 
     public String getBookList() {
-        return "1.Calculus Made Easy.\n2.Problem Solving Strategies\n";
+        return booksList.get(0).getName()+booksList.get(1).getName();
     }
 
     public String getBooksDetails() {
