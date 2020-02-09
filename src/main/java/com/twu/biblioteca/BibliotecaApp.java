@@ -69,7 +69,8 @@ public class BibliotecaApp {
             checkedOutBooks.remove(book);
             return "Thank you for returning the book";
         }
-        return null;
+        else
+            return "That is not a valid book to return";
     }
 
     public String checkout(Book book) {
