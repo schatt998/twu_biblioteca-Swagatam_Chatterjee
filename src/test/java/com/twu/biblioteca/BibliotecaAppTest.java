@@ -107,4 +107,20 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedBookList, actualBookList);
 
     }
+
+    @Test
+    void shouldReceiveSuccessfulNotificationIfBookIsSuccessfullyCheckedOut() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
+        String expectedNotificationMessage = "Thank you! Enjoy the book";
+        String expectedBookList = mathsBook.getName();
+
+        String actualNotificationMessage = bibliotecaApp.checkout(calculusBook);
+        String actualBookList = bibliotecaApp.getBookList();
+
+        Assertions.assertEquals(expectedBookList, actualBookList);
+        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
+
+    }
 }

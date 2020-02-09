@@ -64,8 +64,11 @@ public class BibliotecaApp {
     public String checkout(Book book) {
         if (booksList.contains(book)) {
             booksList.remove(book);
+            return "Thank you! Enjoy the book";
         }
-        return null;
+        else
+            return null;
+
     }
 
     public ApplicationState getState() {
