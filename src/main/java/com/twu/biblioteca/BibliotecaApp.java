@@ -46,7 +46,7 @@ public class BibliotecaApp {
     }
 
 
-    public MenuOptions getMenu() {
+    public ArrayList<MenuOptions> getMenu() {
         return menu.getOptions();
     }
 

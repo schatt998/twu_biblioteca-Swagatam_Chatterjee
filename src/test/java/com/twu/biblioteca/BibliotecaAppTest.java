@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -49,11 +51,13 @@ class BibliotecaAppTest {
     }
 
     @Test
-    void shouldGetListOfBooksAsOptionInTheMenu() {
+    void shouldGetOptionInTheMenu() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        MenuOptions expectedMenu = MenuOptions.LIST_OF_BOOKS;
+        ArrayList<MenuOptions> expectedMenu = new ArrayList<>();
+        expectedMenu.add(MenuOptions.LIST_OF_BOOKS);
+        expectedMenu.add(MenuOptions.CHECKOUT);
 
-        MenuOptions actualMenu = bibliotecaApp.getMenu();
+        ArrayList<MenuOptions> actualMenu = bibliotecaApp.getMenu();
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }

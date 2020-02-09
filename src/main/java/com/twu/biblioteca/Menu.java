@@ -1,9 +1,17 @@
 package com.twu.biblioteca;
 
-public class Menu {
-    MenuOptions menuOptions;
+import java.util.ArrayList;
+import java.util.List;
 
-    public MenuOptions getOptions() {
-        return menuOptions.LIST_OF_BOOKS;
+public class Menu {
+    ArrayList menuOptions=new ArrayList<>();;
+
+    public Menu(){
+        menuOptions.add(MenuOptions.LIST_OF_BOOKS);
+        menuOptions.add(MenuOptions.CHECKOUT);
+    }
+
+    public ArrayList<MenuOptions> getOptions() {
+        return menuOptions;
     }
 }
