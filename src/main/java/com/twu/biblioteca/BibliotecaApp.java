@@ -32,7 +32,7 @@ public class BibliotecaApp {
 
 
     public String getBookList() {
-        return booksList.get(0).getName()+booksList.get(1).getName();
+        return booksList.get(0).getName() + booksList.get(1).getName();
     }
 
     public String getBooksDetails() {
@@ -42,4 +42,7 @@ public class BibliotecaApp {
     }
 
 
+    public String getMenu() {
+        return "List Of Books";
+    }
 }

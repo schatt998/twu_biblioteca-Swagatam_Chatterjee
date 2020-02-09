@@ -24,7 +24,7 @@ class BibliotecaAppTest {
         when(calculusBook.getName()).thenReturn("Calculus Made Easy\n");
         when(mathematicsBook.getName()).thenReturn("Problem Solving Strategies\n");
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMessage = calculusBook.getName()+mathematicsBook.getName();
+        String expectedMessage = calculusBook.getName() + mathematicsBook.getName();
         String actualMessage = bibliotecaApp.getBookList();
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
@@ -43,5 +43,11 @@ class BibliotecaAppTest {
 
     }
 
-
+    @Test
+    void shouldGetListOfBooksAsOptionInTheMenu() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedMenu = "List Of Books";
+        String actualMenu = bibliotecaApp.getMenu();
+        Assertions.assertEquals(expectedMenu, actualMenu);
+    }
 }

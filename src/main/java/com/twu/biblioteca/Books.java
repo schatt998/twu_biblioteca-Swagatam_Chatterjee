@@ -14,8 +14,9 @@ public class Books {
     public String getDetails() {
         return this.name + "|" + this.authorName + "|" + this.publicationYear + "\n";
     }
-    public String getName(){
-        return this.name+"\n";
+
+    public String getName() {
+        return this.name + "\n";
     }
 
 }
