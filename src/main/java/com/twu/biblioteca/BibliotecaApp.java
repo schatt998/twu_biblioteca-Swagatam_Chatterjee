@@ -8,10 +8,12 @@ public class BibliotecaApp {
 
     ArrayList<Book> booksList = new ArrayList<>();
     ApplicationState applicationState;
+    Menu menu;
 
     public BibliotecaApp() {
 
         applicationState = ApplicationState.RUNNING;
+        menu= new Menu();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
         booksList.add(calculusBook);
@@ -45,7 +47,7 @@ public class BibliotecaApp {
 
 
     public MenuOptions getMenu() {
-        return MenuOptions.LIST_OF_BOOKS;
+        return menu.getOptions();
     }
 
     public String getInvalidChoiceNotification() {
