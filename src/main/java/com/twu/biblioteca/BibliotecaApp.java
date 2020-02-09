@@ -45,4 +45,8 @@ public class BibliotecaApp {
     public MenuOptions getMenu() {
         return MenuOptions.LIST_OF_BOOKS;
     }
+
+    public String getInvalidChoiceNotification() {
+        return "Please Select a Valid Option!";
+    }
 }

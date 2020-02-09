@@ -50,4 +50,12 @@ class BibliotecaAppTest {
         MenuOptions actualMenu = bibliotecaApp.getMenu();
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
+
+    @Test
+    void shouldGetInvalidChoiceNotification() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedInvalidChoiceNotification = "Please Select a Valid Option!";
+        String actualInvalidChoiceNotification = bibliotecaApp.getInvalidChoiceNotification();
+        Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
+    }
 }
