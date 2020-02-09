@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     ArrayList<Books> booksList = new ArrayList<>();
-    boolean applicationState;
+    ApplicationState applicationState;
 
     public BibliotecaApp() {
 
-        applicationState = true;
+        applicationState = ApplicationState.RUNNING;
         Books calculusBook = new Books("Calculus Made Easy", "Silvanus P.", 2003);
         Books mathsBook = new Books("Problem Solving Strategies", "Arthur Engel", 2005);
         booksList.add(calculusBook);
@@ -53,10 +53,10 @@ public class BibliotecaApp {
     }
 
     public void quit() {
-        this.applicationState = false;
+        this.applicationState = ApplicationState.CLOSED;
     }
 
-    public boolean getState() {
+    public ApplicationState getState() {
         return this.applicationState;
     }
 }

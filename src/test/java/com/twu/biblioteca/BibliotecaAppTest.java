@@ -74,9 +74,9 @@ class BibliotecaAppTest {
 
 
         bibliotecaApp.quit();
-        boolean actualApplicationState = bibliotecaApp.getState();
+        ApplicationState actualApplicationState = bibliotecaApp.getState();
 
-        Assertions.assertFalse(actualApplicationState);
+        Assertions.assertEquals(ApplicationState.CLOSED, actualApplicationState);
 
     }
 }
