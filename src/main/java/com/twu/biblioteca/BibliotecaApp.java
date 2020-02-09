@@ -67,6 +67,7 @@ public class BibliotecaApp {
         if (checkedOutBooks.contains(book)) {
             booksList.add(book);
             checkedOutBooks.remove(book);
+            return "Thank you for returning the book";
         }
         return null;
     }
