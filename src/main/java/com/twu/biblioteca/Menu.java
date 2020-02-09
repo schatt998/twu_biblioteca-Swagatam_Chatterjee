@@ -1,11 +1,10 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Menu {
     ArrayList menuOptions = new ArrayList<>();
-    ;
 
     public Menu() {
         menuOptions.add(MenuOptions.LIST_OF_BOOKS);

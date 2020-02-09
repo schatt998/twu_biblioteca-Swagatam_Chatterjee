@@ -13,7 +13,7 @@ public class BibliotecaApp {
     public BibliotecaApp() {
 
         applicationState = ApplicationState.RUNNING;
-        menu= new Menu();
+        menu = new Menu();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
         booksList.add(calculusBook);
@@ -36,7 +36,11 @@ public class BibliotecaApp {
 
 
     public String getBookList() {
-        return booksList.get(0).getName() + booksList.get(1).getName();
+        StringBuilder actualBookList = new StringBuilder();
+        for (Book book : booksList) {
+            actualBookList.append(book.getName());
+        }
+        return actualBookList.toString();
     }
 
     public String getBooksDetails() {
@@ -57,6 +61,7 @@ public class BibliotecaApp {
     public void quit() {
         this.applicationState = ApplicationState.CLOSED;
     }
+
 
     public ApplicationState getState() {
         return this.applicationState;
