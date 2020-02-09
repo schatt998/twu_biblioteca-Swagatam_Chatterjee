@@ -123,4 +123,21 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
 
     }
+
+    @Test
+    void shouldReceiveUnSuccessfulNotificationIfBookIsSuccessfullyCheckedOut() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
+        String expectedNotificationMessage = "Sorry,that book is not available";
+        String expectedBookList = calculusBook.getName() + mathsBook.getName();
+
+        String actualNotificationMessage = bibliotecaApp.checkout(new Book("book", "author", 1233));
+        String actualBookList = bibliotecaApp.getBookList();
+
+        Assertions.assertEquals(expectedBookList, actualBookList);
+        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
+
+    }
+
 }
