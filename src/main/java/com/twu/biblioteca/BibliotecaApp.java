@@ -9,6 +9,8 @@ public class BibliotecaApp {
 
     private ArrayList<Book> booksList;
     private ApplicationState applicationState;
+    private ArrayList<Book> checkedOutBooks = new ArrayList<>();
+
     private Menu menu;
 
     public BibliotecaApp() {
@@ -61,8 +63,17 @@ public class BibliotecaApp {
         this.applicationState = ApplicationState.CLOSED;
     }
 
+    public String returnBook(Book book) {
+        if (checkedOutBooks.contains(book)) {
+            booksList.add(book);
+            checkedOutBooks.remove(book);
+        }
+        return null;
+    }
+
     public String checkout(Book book) {
         if (booksList.contains(book)) {
+            checkedOutBooks.add(book);
             booksList.remove(book);
             return "Thank you! Enjoy the book";
         } else

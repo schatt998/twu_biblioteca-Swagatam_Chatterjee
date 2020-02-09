@@ -140,4 +140,23 @@ class BibliotecaAppTest {
 
     }
 
+    @Test
+    void shouldBeInBookListIfABookIsReturned() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
+        String expectedBookList = mathsBook.getName() + calculusBook.getName();
+
+        bibliotecaApp.checkout(calculusBook);
+        bibliotecaApp.returnBook(calculusBook);
+
+
+        String actualBookList = bibliotecaApp.getBookList();
+
+        Assertions.assertEquals(expectedBookList, actualBookList);
+
+
+    }
+
+
 }
