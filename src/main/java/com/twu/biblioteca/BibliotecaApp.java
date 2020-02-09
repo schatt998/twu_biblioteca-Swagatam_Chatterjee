@@ -7,9 +7,11 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     ArrayList<Books> booksList = new ArrayList<>();
+    boolean applicationState;
 
     public BibliotecaApp() {
 
+        applicationState = true;
         Books calculusBook = new Books("Calculus Made Easy", "Silvanus P.", 2003);
         Books mathsBook = new Books("Problem Solving Strategies", "Arthur Engel", 2005);
         booksList.add(calculusBook);
@@ -48,5 +50,13 @@ public class BibliotecaApp {
 
     public String getInvalidChoiceNotification() {
         return "Please Select a Valid Option!";
+    }
+
+    public void quit() {
+        this.applicationState = false;
+    }
+
+    public boolean getState() {
+        return this.applicationState;
     }
 }

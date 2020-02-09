@@ -13,7 +13,9 @@ class BibliotecaAppTest {
     public void shouldShowWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String expectedMessage = "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore";
+
         String actualMessage = bibliotecaApp.getWelcomeMessage();
+
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
@@ -25,7 +27,9 @@ class BibliotecaAppTest {
         when(mathematicsBook.getName()).thenReturn("Problem Solving Strategies\n");
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String expectedMessage = calculusBook.getName() + mathematicsBook.getName();
+
         String actualMessage = bibliotecaApp.getBookList();
+
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
@@ -36,6 +40,7 @@ class BibliotecaAppTest {
         when(calculusBook.getDetails()).thenReturn("Calculus Made Easy|Silvanus P.|2003\n");
         when(mathematicsBook.getDetails()).thenReturn("Problem Solving Strategies|Arthur Engel|2005\n");
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
+
         String expectedBookList = calculusBook.getDetails() + mathematicsBook.getDetails();
         String actualBookList = bibliotecaApp.getBooksDetails();
 
@@ -47,7 +52,9 @@ class BibliotecaAppTest {
     void shouldGetListOfBooksAsOptionInTheMenu() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         MenuOptions expectedMenu = MenuOptions.LIST_OF_BOOKS;
+
         MenuOptions actualMenu = bibliotecaApp.getMenu();
+
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
 
@@ -55,7 +62,21 @@ class BibliotecaAppTest {
     void shouldGetInvalidChoiceNotification() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String expectedInvalidChoiceNotification = "Please Select a Valid Option!";
+
         String actualInvalidChoiceNotification = bibliotecaApp.getInvalidChoiceNotification();
+
         Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
+    }
+
+    @Test
+    void shouldQuitTheApplication() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+
+
+        bibliotecaApp.quit();
+        boolean actualApplicationState = bibliotecaApp.getState();
+
+        Assertions.assertFalse(actualApplicationState);
+
     }
 }
