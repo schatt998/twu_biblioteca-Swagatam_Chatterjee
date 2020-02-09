@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 
 public class BibliotecaApp {
@@ -62,9 +61,11 @@ public class BibliotecaApp {
         this.applicationState = ApplicationState.CLOSED;
     }
 
-    public void checkout(Book book) {
-        if (booksList.contains(book))
+    public String checkout(Book book) {
+        if (booksList.contains(book)) {
             booksList.remove(book);
+        }
+        return null;
     }
 
     public ApplicationState getState() {
