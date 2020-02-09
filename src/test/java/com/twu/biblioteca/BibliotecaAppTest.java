@@ -57,6 +57,7 @@ class BibliotecaAppTest {
         expectedMenu.add(MenuOptions.LIST_OF_BOOKS);
         expectedMenu.add(MenuOptions.CHECKOUT);
 
+
         ArrayList<MenuOptions> actualMenu = bibliotecaApp.getMenu();
 
         Assertions.assertEquals(expectedMenu, actualMenu);
