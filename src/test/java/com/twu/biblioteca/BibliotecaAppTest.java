@@ -79,12 +79,13 @@ class BibliotecaAppTest {
         Assertions.assertEquals(ApplicationState.CLOSED, actualApplicationState);
 
     }
+
     @Test
-    void shouldBeInRunningStateUntilQuitOptionIsChosen(){
+    void shouldBeInRunningStateUntilQuitOptionIsChosen() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
 
         ApplicationState applicationState = bibliotecaApp.getState();
 
-        Assertions.assertEquals(ApplicationState.RUNNING,applicationState);
+        Assertions.assertEquals(ApplicationState.RUNNING, applicationState);
     }
 }
