@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Objects;
+
 public class Book {
     private String name;
     private String authorName;
@@ -19,4 +21,18 @@ public class Book {
         return this.name + "\n";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publicationYear == book.publicationYear &&
+                name.equals(book.name) &&
+                authorName.equals(book.authorName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, authorName, publicationYear);
+    }
 }

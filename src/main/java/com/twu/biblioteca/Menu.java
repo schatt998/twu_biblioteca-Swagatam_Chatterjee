@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class Menu {
-    ArrayList menuOptions = new ArrayList<>();
+    private ArrayList menuOptions = new ArrayList<>();
 
     public Menu() {
         menuOptions.add(MenuOptions.LIST_OF_BOOKS);

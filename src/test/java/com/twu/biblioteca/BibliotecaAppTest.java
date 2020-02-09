@@ -93,4 +93,18 @@ class BibliotecaAppTest {
 
         Assertions.assertEquals(ApplicationState.RUNNING, applicationState);
     }
+
+    @Test
+    void shouldNotBeInBookListIfABookIsCheckedOut() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
+        bibliotecaApp.checkout(calculusBook);
+        String expectedBookList = mathsBook.getName();
+
+        String actualBookList = bibliotecaApp.getBookList();
+
+        Assertions.assertEquals(expectedBookList, actualBookList);
+
+    }
 }

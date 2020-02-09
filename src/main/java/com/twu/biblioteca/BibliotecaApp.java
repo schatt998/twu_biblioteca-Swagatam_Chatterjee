@@ -2,22 +2,22 @@ package com.twu.biblioteca;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 
 public class BibliotecaApp {
 
-    ArrayList<Book> booksList = new ArrayList<>();
-    ApplicationState applicationState;
-    Menu menu;
+    private ArrayList<Book> booksList;
+    private ApplicationState applicationState;
+    private Menu menu;
 
     public BibliotecaApp() {
 
         applicationState = ApplicationState.RUNNING;
         menu = new Menu();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        booksList.add(calculusBook);
-        booksList.add(mathsBook);
+        this.booksList = new ArrayList<>(Arrays.asList(new Book("Calculus Made Easy", "Silvanus P.", 2003), new Book("Problem Solving Strategies", "Arthur Engel", 2005)));
+
 
     }
 
@@ -45,7 +45,7 @@ public class BibliotecaApp {
 
     public String getBooksDetails() {
 
-        return booksList.get(0).getDetails() + booksList.get(1).getDetails();
+        return this.booksList.get(0).getDetails() + this.booksList.get(1).getDetails();
 
     }
 
@@ -62,6 +62,10 @@ public class BibliotecaApp {
         this.applicationState = ApplicationState.CLOSED;
     }
 
+    public void checkout(Book book) {
+        if (booksList.contains(book))
+            booksList.remove(book);
+    }
 
     public ApplicationState getState() {
         return this.applicationState;
