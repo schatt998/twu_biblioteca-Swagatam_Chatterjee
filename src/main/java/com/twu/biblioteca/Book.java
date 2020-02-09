@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
-public class Books {
+public class Book {
     private String name;
     private String authorName;
     private int publicationYear;
 
-    public Books(String name, String authorName, int publicationYear) {
+    public Book(String name, String authorName, int publicationYear) {
         this.name = name;
         this.authorName = authorName;
         this.publicationYear = publicationYear;

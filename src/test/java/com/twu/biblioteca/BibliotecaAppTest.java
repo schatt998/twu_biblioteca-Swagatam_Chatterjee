@@ -21,8 +21,8 @@ class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayAListOfBooks() {
-        Books calculusBook = mock(Books.class);
-        Books mathematicsBook = mock(Books.class);
+        Book calculusBook = mock(Book.class);
+        Book mathematicsBook = mock(Book.class);
         when(calculusBook.getName()).thenReturn("Calculus Made Easy\n");
         when(mathematicsBook.getName()).thenReturn("Problem Solving Strategies\n");
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
@@ -35,8 +35,8 @@ class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayAuthorsAndPublicationYearsOfBooks() {
-        Books calculusBook = mock(Books.class);
-        Books mathematicsBook = mock(Books.class);
+        Book calculusBook = mock(Book.class);
+        Book mathematicsBook = mock(Book.class);
         when(calculusBook.getDetails()).thenReturn("Calculus Made Easy|Silvanus P.|2003\n");
         when(mathematicsBook.getDetails()).thenReturn("Problem Solving Strategies|Arthur Engel|2005\n");
         BibliotecaApp bibliotecaApp = new BibliotecaApp();

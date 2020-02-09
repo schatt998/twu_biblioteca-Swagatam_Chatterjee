@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class BibliotecaApp {
 
-    ArrayList<Books> booksList = new ArrayList<>();
+    ArrayList<Book> booksList = new ArrayList<>();
     ApplicationState applicationState;
 
     public BibliotecaApp() {
 
         applicationState = ApplicationState.RUNNING;
-        Books calculusBook = new Books("Calculus Made Easy", "Silvanus P.", 2003);
-        Books mathsBook = new Books("Problem Solving Strategies", "Arthur Engel", 2005);
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
         booksList.add(calculusBook);
         booksList.add(mathsBook);
 
