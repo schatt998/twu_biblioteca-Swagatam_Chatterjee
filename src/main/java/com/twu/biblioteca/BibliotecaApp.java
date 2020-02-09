@@ -42,7 +42,7 @@ public class BibliotecaApp {
     }
 
 
-    public String getMenu() {
-        return "List Of Books";
+    public MenuOptions getMenu() {
+        return MenuOptions.LIST_OF_BOOKS;
     }
 }

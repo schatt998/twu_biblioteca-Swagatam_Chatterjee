@@ -46,8 +46,8 @@ class BibliotecaAppTest {
     @Test
     void shouldGetListOfBooksAsOptionInTheMenu() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMenu = "List Of Books";
-        String actualMenu = bibliotecaApp.getMenu();
+        MenuOptions expectedMenu = MenuOptions.LIST_OF_BOOKS;
+        MenuOptions actualMenu = bibliotecaApp.getMenu();
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
 }
