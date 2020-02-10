@@ -30,9 +30,12 @@ public class Library {
     }
 
 
-    public void checkout(Book book) {
+    public String checkout(Book book) {
         if(bookList.contains(book)){
             bookList.remove(book);
+            return "Thank you! Enjoy the book";
         }
+        else
+            return null;
     }
 }
