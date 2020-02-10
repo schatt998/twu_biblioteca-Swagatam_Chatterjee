@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class BibliotecaApp {
 
+
     private ArrayList<Book> booksList;
     private ApplicationState applicationState;
     private ArrayList<Book> checkedOutBooks = new ArrayList<>();
@@ -25,8 +26,9 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         System.out.println(bibliotecaApp.getWelcomeMessage());
-        System.out.println(bibliotecaApp.getBookList());
+        System.out.println(bibliotecaApp.showMenu());
         System.out.println(bibliotecaApp.getBooksDetails());
+
 
     }
 
@@ -43,6 +45,10 @@ public class BibliotecaApp {
         }
         return actualBookList.toString();
     }
+    public ArrayList<MenuOptions> showMenu()
+    {
+        return menu.getMenu();
+    }
 
     public String getBooksDetails() {
 
@@ -52,7 +58,7 @@ public class BibliotecaApp {
 
 
     public ArrayList<MenuOptions> getMenu() {
-        return menu.getOptions();
+        return menu.getMenu();
     }
 
     public String getInvalidChoiceNotification() {
@@ -61,6 +67,7 @@ public class BibliotecaApp {
 
     public void quit() {
         this.applicationState = ApplicationState.CLOSED;
+       // System.exit(0);
     }
 
     public String returnBook(Book book) {

@@ -12,7 +12,7 @@ public class Menu {
 
     }
 
-    public ArrayList<MenuOptions> getOptions() {
+    public ArrayList<MenuOptions> getMenu() {
         return menuOptions;
     }
 }

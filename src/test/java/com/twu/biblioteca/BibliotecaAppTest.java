@@ -11,6 +11,10 @@ import static org.mockito.Mockito.when;
 
 class BibliotecaAppTest {
 
+
+
+
+
     @Test
     public void shouldShowWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
@@ -73,8 +77,11 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
     }
 
+   // @Mocked("exit") System mockSystem
     @Test
     void shouldQuitTheApplication() {
+
+
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
 
 
@@ -84,6 +91,7 @@ class BibliotecaAppTest {
         Assertions.assertEquals(ApplicationState.CLOSED, actualApplicationState);
 
     }
+
 
     @Test
     void shouldBeInRunningStateUntilQuitOptionIsChosen() {

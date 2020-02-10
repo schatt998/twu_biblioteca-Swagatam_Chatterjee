@@ -16,6 +16,6 @@ class MenuTest {
         expectedMenuOptions.add(MenuOptions.CHECKOUT);
 
 
-        Assertions.assertEquals(expectedMenuOptions, menu.getOptions());
+        Assertions.assertEquals(expectedMenuOptions, menu.getMenu());
     }
 }
