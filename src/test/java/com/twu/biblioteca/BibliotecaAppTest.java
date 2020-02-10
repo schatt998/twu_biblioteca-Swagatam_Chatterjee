@@ -20,7 +20,7 @@ class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         String expectedMessage = "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore";
 
-        String actualMessage = bibliotecaApp.getWelcomeMessage();
+        String actualMessage = bibliotecaApp.showWelcomeMessage();
 
         Assertions.assertEquals(expectedMessage, actualMessage);
     }

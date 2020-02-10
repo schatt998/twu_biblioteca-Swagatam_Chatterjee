@@ -25,7 +25,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        System.out.println(bibliotecaApp.getWelcomeMessage());
+        System.out.println(bibliotecaApp.showWelcomeMessage());
         System.out.println(bibliotecaApp.showMenu());
         System.out.println(bibliotecaApp.getBooksDetails());
 
@@ -33,7 +33,7 @@ public class BibliotecaApp {
     }
 
 
-    public String getWelcomeMessage() {
+    public String showWelcomeMessage() {
         return "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore";
     }
 
