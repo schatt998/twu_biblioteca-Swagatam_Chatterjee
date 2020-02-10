@@ -7,7 +7,7 @@ public class Library {
 
     private Book book;
     private ArrayList<Book> bookList;
-    private ArrayList<Book> checkedOutBooks=new ArrayList<>();
+    private ArrayList<Book> checkedOutBooks = new ArrayList<>();
 
     public Library() {
 
@@ -46,7 +46,7 @@ public class Library {
             checkedOutBooks.remove(book);
             return "Thank you for returning the book";
         }
-        return null;
+        return "That is not a valid book to return";
 
     }
 }
