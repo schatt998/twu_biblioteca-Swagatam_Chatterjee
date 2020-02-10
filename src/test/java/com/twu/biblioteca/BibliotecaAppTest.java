@@ -74,27 +74,10 @@ class BibliotecaAppTest {
 
     @Test
     void shouldQuitTheApplication() {
-
-
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-
-
-        bibliotecaApp.quit();
-        ApplicationState actualApplicationState = bibliotecaApp.getState();
-
-        Assertions.assertEquals(ApplicationState.CLOSED, actualApplicationState);
-
     }
 
 
-    @Test
-    void shouldBeInRunningStateUntilQuitOptionIsChosen() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-
-        ApplicationState applicationState = bibliotecaApp.getState();
-
-        Assertions.assertEquals(ApplicationState.RUNNING, applicationState);
-    }
 
     @Test
     void shouldNotBeInBookListIfABookIsCheckedOut() {
