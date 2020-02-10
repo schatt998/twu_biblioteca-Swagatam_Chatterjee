@@ -7,6 +7,7 @@ public class Library {
 
     private Book book;
     private ArrayList<Book> bookList;
+    private ArrayList<Book> checkedOutBooks=new ArrayList<>();
 
     public Library() {
 
@@ -32,9 +33,20 @@ public class Library {
 
     public String checkout(Book book) {
         if (bookList.contains(book)) {
+            checkedOutBooks.add(book);
             bookList.remove(book);
             return "Thank you! Enjoy the book";
         } else
             return "Sorry,that book is not available";
+    }
+
+    public String returnBook(Book book) {
+        if (checkedOutBooks.contains(book)) {
+            bookList.add(book);
+            checkedOutBooks.remove(book);
+            return null;
+        }
+        return null;
+
     }
 }

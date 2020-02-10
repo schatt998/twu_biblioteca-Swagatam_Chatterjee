@@ -79,4 +79,22 @@ class LibraryTest {
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
 
     }
+
+    @Test
+    void shouldBeInBookListIfABookIsReturned() {
+        Library library = new Library();
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
+        String expectedBookList = mathsBook.getName() + calculusBook.getName();
+
+        library.checkout(calculusBook);
+        library.returnBook(calculusBook);
+
+
+        String actualBookList = library.getBookList();
+
+        Assertions.assertEquals(expectedBookList, actualBookList);
+
+    }
+
 }
