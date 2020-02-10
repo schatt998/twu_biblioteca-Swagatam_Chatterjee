@@ -54,12 +54,9 @@ class BibliotecaAppTest {
     @Test
     void shouldGetOptionInTheMenu() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        ArrayList<MenuOptions> expectedMenu = new ArrayList<>();
-        expectedMenu.add(MenuOptions.LIST_OF_BOOKS);
-        expectedMenu.add(MenuOptions.CHECKOUT);
+        String expectedMenu="1.LIST_OF_BOOKS\n2.CHECKOUT\n";
 
-
-        ArrayList<MenuOptions> actualMenu = bibliotecaApp.getMenu();
+        String actualMenu = bibliotecaApp.showMenu();
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
@@ -74,7 +71,7 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
     }
 
-    // @Mocked("exit") System mockSystem
+
     @Test
     void shouldQuitTheApplication() {
 

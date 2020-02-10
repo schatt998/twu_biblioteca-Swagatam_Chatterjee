@@ -12,10 +12,12 @@ class MenuTest {
     void shouldContainAllOptions() {
         Menu menu = new Menu();
         ArrayList<MenuOptions> expectedMenuOptions = new ArrayList<>();
-        expectedMenuOptions.add(MenuOptions.LIST_OF_BOOKS);
-        expectedMenuOptions.add(MenuOptions.CHECKOUT);
+        String expectedMenu="1.LIST_OF_BOOKS\n2.CHECKOUT\n";
+
+        String actualMenu = menu.getMenu();
 
 
-        Assertions.assertEquals(expectedMenuOptions, menu.getMenu());
+
+        Assertions.assertEquals(expectedMenu, actualMenu);
     }
 }

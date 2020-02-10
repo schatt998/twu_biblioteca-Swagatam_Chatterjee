@@ -9,10 +9,9 @@ public class Menu {
     public Menu() {
         menuOptions.add(MenuOptions.LIST_OF_BOOKS);
         menuOptions.add(MenuOptions.CHECKOUT);
-
     }
 
-    public ArrayList<MenuOptions> getMenu() {
-        return menuOptions;
+    public String getMenu() {
+        return "1."+menuOptions.get(0)+"\n"+"2."+menuOptions.get(1)+"\n";
     }
 }
