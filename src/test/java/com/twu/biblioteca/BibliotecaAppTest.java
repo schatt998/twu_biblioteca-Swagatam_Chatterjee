@@ -12,9 +12,6 @@ import static org.mockito.Mockito.when;
 class BibliotecaAppTest {
 
 
-
-
-
     @Test
     public void shouldShowWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
@@ -77,7 +74,7 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
     }
 
-   // @Mocked("exit") System mockSystem
+    // @Mocked("exit") System mockSystem
     @Test
     void shouldQuitTheApplication() {
 
@@ -164,12 +161,13 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedBookList, actualBookList);
 
     }
+
     @Test
     void shouldReceiveSuccessfulNotificationIfBookIsSuccessfullyReturned() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage= "Thank you for returning the book";
+        String expectedNotificationMessage = "Thank you for returning the book";
 
 
         bibliotecaApp.checkout(calculusBook);
@@ -179,16 +177,17 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
 
     }
+
     @Test
     void shouldReceiveUnSuccessfulNotificationIfBookIsSuccessfullyReturned() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage= "That is not a valid book to return";
+        String expectedNotificationMessage = "That is not a valid book to return";
 
 
         bibliotecaApp.checkout(calculusBook);
-        String actualNotificationMessage = bibliotecaApp.returnBook(new Book("book","author",1233));
+        String actualNotificationMessage = bibliotecaApp.returnBook(new Book("book", "author", 1233));
 
 
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);

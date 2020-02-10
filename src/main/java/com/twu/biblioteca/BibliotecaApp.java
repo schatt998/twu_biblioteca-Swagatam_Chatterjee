@@ -8,17 +8,21 @@ import java.util.Arrays;
 public class BibliotecaApp {
 
 
-    private ArrayList<Book> booksList;
+    private Library library;
     private ApplicationState applicationState;
+    private ArrayList<Book> booksList;
     private ArrayList<Book> checkedOutBooks = new ArrayList<>();
+
 
     private Menu menu;
 
     public BibliotecaApp() {
 
+        this.booksList = new ArrayList<>(Arrays.asList(new Book("Calculus Made Easy", "Silvanus P.", 2003), new Book("Problem Solving Strategies", "Arthur Engel", 2005)));
+
+
         applicationState = ApplicationState.RUNNING;
         menu = new Menu();
-        this.booksList = new ArrayList<>(Arrays.asList(new Book("Calculus Made Easy", "Silvanus P.", 2003), new Book("Problem Solving Strategies", "Arthur Engel", 2005)));
 
 
     }
@@ -27,6 +31,7 @@ public class BibliotecaApp {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         System.out.println(bibliotecaApp.showWelcomeMessage());
         System.out.println(bibliotecaApp.showMenu());
+
         System.out.println(bibliotecaApp.getBooksDetails());
 
 
@@ -38,15 +43,7 @@ public class BibliotecaApp {
     }
 
 
-    public String getBookList() {
-        StringBuilder actualBookList = new StringBuilder();
-        for (Book book : booksList) {
-            actualBookList.append(book.getName());
-        }
-        return actualBookList.toString();
-    }
-    public ArrayList<MenuOptions> showMenu()
-    {
+    public ArrayList<MenuOptions> showMenu() {
         return menu.getMenu();
     }
 
@@ -67,7 +64,7 @@ public class BibliotecaApp {
 
     public void quit() {
         this.applicationState = ApplicationState.CLOSED;
-       // System.exit(0);
+        // System.exit(0);
     }
 
     public String returnBook(Book book) {
@@ -75,8 +72,7 @@ public class BibliotecaApp {
             booksList.add(book);
             checkedOutBooks.remove(book);
             return "Thank you for returning the book";
-        }
-        else
+        } else
             return "That is not a valid book to return";
     }
 
@@ -88,6 +84,14 @@ public class BibliotecaApp {
         } else
             return "Sorry,that book is not available";
 
+    }
+
+    public String getBookList() {
+        StringBuilder actualBookList = new StringBuilder();
+        for (Book book : booksList) {
+            actualBookList.append(book.getName());
+        }
+        return actualBookList.toString();
     }
 
     public ApplicationState getState() {
