@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class BibliotecaApp {
 
 
-
+    private Library library;
     private ApplicationState applicationState;
     private ArrayList<Book> booksList;
     private ArrayList<Book> checkedOutBooks = new ArrayList<>();
@@ -20,7 +20,7 @@ public class BibliotecaApp {
 
         this.booksList = new ArrayList<>(Arrays.asList(new Book("Calculus Made Easy", "Silvanus P.", 2003), new Book("Problem Solving Strategies", "Arthur Engel", 2005)));
 
-
+        library=new Library();
         applicationState = ApplicationState.RUNNING;
         menu = new Menu();
 
@@ -64,36 +64,21 @@ public class BibliotecaApp {
 
     public void quit() {
         this.applicationState = ApplicationState.CLOSED;
-        // System.exit(0);
+
     }
 
     public String returnBook(Book book) {
-        if (checkedOutBooks.contains(book)) {
-            booksList.add(book);
-            checkedOutBooks.remove(book);
-            return "Thank you for returning the book";
-        } else
-            return "That is not a valid book to return";
+        return library.returnBook(book);
     }
 
     public String checkout(Book book) {
-        if (booksList.contains(book)) {
-            checkedOutBooks.add(book);
-            booksList.remove(book);
-            return "Thank you! Enjoy the book";
-        } else
-            return "Sorry,that book is not available";
+       return library.checkout(book);
+
 
     }
 
     public String getBookList() {
-
-          //return library.getBookList();
-        StringBuilder actualBookList = new StringBuilder();
-        for (Book book : booksList) {
-            actualBookList.append(book.getName());
-        }
-        return actualBookList.toString();
+        return library.getBookList();
     }
 
     public ApplicationState getState() {
