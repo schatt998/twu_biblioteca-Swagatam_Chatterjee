@@ -31,11 +31,10 @@ public class Library {
 
 
     public String checkout(Book book) {
-        if(bookList.contains(book)){
+        if (bookList.contains(book)) {
             bookList.remove(book);
             return "Thank you! Enjoy the book";
-        }
-        else
-            return null;
+        } else
+            return "Sorry,that book is not available";
     }
 }
