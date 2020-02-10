@@ -13,7 +13,21 @@ public class Library {
         this.bookList = new ArrayList<>(Arrays.asList(new Book("Calculus Made Easy", "Silvanus P.", 2003), new Book("Problem Solving Strategies", "Arthur Engel", 2005)));
     }
 
-    public ArrayList<Book> getBookList() {
-        return bookList;
+    public String getBookList() {
+        StringBuilder actualBookList = new StringBuilder();
+        for (Book book : bookList) {
+            actualBookList.append(book.getName());
+        }
+        return actualBookList.toString();
     }
+
+    public String getBookDetails() {
+        StringBuilder actualBookDetails = new StringBuilder();
+        for (Book book : bookList) {
+            actualBookDetails.append(book.getDetails());
+        }
+        return actualBookDetails.toString();
+    }
+
+
 }

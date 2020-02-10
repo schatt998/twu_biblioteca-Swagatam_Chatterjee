@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class BibliotecaApp {
 
 
-    private Library library;
+
     private ApplicationState applicationState;
     private ArrayList<Book> booksList;
     private ArrayList<Book> checkedOutBooks = new ArrayList<>();
@@ -87,6 +87,8 @@ public class BibliotecaApp {
     }
 
     public String getBookList() {
+
+          //return library.getBookList();
         StringBuilder actualBookList = new StringBuilder();
         for (Book book : booksList) {
             actualBookList.append(book.getName());
