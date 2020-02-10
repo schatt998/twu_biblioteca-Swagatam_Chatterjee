@@ -97,4 +97,22 @@ class LibraryTest {
 
     }
 
+    @Test
+    void shouldReceiveSuccessfulNotificationIfBookIsSuccessfullyReturned() {
+        Library library = new Library();
+
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
+        String expectedNotificationMessage = "Thank you for returning the book";
+
+
+        library.checkout(calculusBook);
+        String actualNotificationMessage = library.returnBook(calculusBook);
+
+
+        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
+
+    }
+
+
 }

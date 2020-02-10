@@ -44,7 +44,7 @@ public class Library {
         if (checkedOutBooks.contains(book)) {
             bookList.add(book);
             checkedOutBooks.remove(book);
-            return null;
+            return "Thank you for returning the book";
         }
         return null;
 
