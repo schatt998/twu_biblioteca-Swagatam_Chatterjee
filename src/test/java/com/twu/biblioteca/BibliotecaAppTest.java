@@ -54,7 +54,7 @@ class BibliotecaAppTest {
     @Test
     void shouldGetOptionInTheMenu() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMenu="1.LIST_OF_BOOKS\n2.CHECKOUT\n";
+        String expectedMenu = "1.LIST_OF_BOOKS\n2.CHECKOUT\n3.RETURN\n4.QUIT\n";
 
         String actualMenu = bibliotecaApp.showMenu();
 

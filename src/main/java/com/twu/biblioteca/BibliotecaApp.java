@@ -1,8 +1,7 @@
 package com.twu.biblioteca;
 
 
-import java.util.ArrayList;
-
+import java.util.Scanner;
 
 
 public class BibliotecaApp {
@@ -21,12 +20,8 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        System.out.println(bibliotecaApp.showWelcomeMessage());
-        System.out.println(bibliotecaApp.showMenu());
+        }
 
-        System.out.println(bibliotecaApp.getBooksDetails());
-    }
 
 
     public String showWelcomeMessage() {
@@ -43,8 +38,6 @@ public class BibliotecaApp {
         return library.getBookDetails();
 
     }
-
-
 
 
     public String getInvalidChoiceNotification() {

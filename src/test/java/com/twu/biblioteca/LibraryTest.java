@@ -113,6 +113,7 @@ class LibraryTest {
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
 
     }
+
     @Test
     void shouldReceiveUnSuccessfulNotificationIfBookIsSuccessfullyReturned() {
         Library library = new Library();
@@ -128,7 +129,6 @@ class LibraryTest {
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
 
     }
-
 
 
 }
