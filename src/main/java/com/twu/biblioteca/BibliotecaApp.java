@@ -8,8 +8,14 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
 
+
     private Library library;
-    private String MOVIELIST="Phir Hera Pheri|2006|Priyadarshan|10";
+    private String MOVIENAME="Phir Hera Pheri";
+    private String MOVIEDIRECTOR="Priyadarshan";
+    private String MOVIERELAESEYEAR="2006";
+    private String MOVIERATING="10";
+    private String INFORMATIONOFMOVIESINTHELIST;
+
     Console console = new Console(System.out);
 
     private Menu menu;
@@ -33,7 +39,8 @@ public class BibliotecaApp {
     }
 
     public String getMovieList(){
-        return MOVIELIST;
+        INFORMATIONOFMOVIESINTHELIST=MOVIENAME+"|"+MOVIEDIRECTOR+"|"+MOVIERELAESEYEAR+"|"+MOVIERATING;
+        return INFORMATIONOFMOVIESINTHELIST;
     }
 
 

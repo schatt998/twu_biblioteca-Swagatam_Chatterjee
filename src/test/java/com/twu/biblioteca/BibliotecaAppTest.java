@@ -29,7 +29,7 @@ class BibliotecaAppTest {
     @Test
     void shouldGetListOfMovies(){
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMenu = "Phir Hera Pheri|2006|Priyadarshan|10";
+        String expectedMenu = "Phir Hera Pheri|Priyadarshan|2006|10";
 
         String actualMenu = bibliotecaApp.getMovieList();
 
