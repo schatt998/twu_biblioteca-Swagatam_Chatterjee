@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ public class Menu {
     private ArrayList menuOptions = new ArrayList<>();
     private Library library = new Library();
     private boolean flag=true;
+    private static Console console =new Console(System.out);
 
     public Menu() {
         menuOptions.add(MenuOptions.LIST_OF_BOOKS);
@@ -20,34 +22,34 @@ public class Menu {
     public String getMenu() {
         return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n";
     }
-    private static  Book takeInput(Scanner stringScanner, Scanner integerScanner){
-        String bookName = integerScanner.nextLine();
-        String authorName = integerScanner.nextLine();
-        int publicationYear = stringScanner.nextInt();
+    private static  Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
+        String bookName = console.readLine();
+        String authorName = console.readLine();
+        int publicationYear = Integer.parseInt(console.readLine());
         return new Book(bookName, authorName, publicationYear);
 
     }
 
-    public void action(Scanner stringScanner, Scanner integerScanner) {
+    public void action(Scanner stringScanner, Scanner integerScanner) throws IOException {
         while (flag) {
             int choice = stringScanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println(getBookList());
+                    console.print(getBookList());
                     break;
                 case 2:
                     Book requestedBook = takeInput(stringScanner, integerScanner);
-                    System.out.println(checkout(requestedBook));
+                    console.print(checkout(requestedBook));
                     break;
                 case 3:
                     Book checkedOutBook = takeInput(stringScanner, integerScanner);
-                    System.out.println(returnBook(checkedOutBook));
+                    console.print(returnBook(checkedOutBook));
                     break;
                 case 4:
                     flag=exitApplication();
                     break;
                 default:
-                    System.out.println(getInvalidChoiceNotification());
+                    console.print(getInvalidChoiceNotification());
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -20,7 +21,7 @@ public class BibliotecaApp {
         this.menu = new Menu();
     }
 
-    public void start() {
+    public void start() throws IOException {
         console.print(showWelcomeMessage());
         console.print(showMenu());
         menu.action(stringScanner, integerScanner);
