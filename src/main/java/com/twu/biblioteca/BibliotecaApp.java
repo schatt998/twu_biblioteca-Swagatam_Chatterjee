@@ -34,31 +34,5 @@ public class BibliotecaApp {
         return menu.getMenu();
     }
 
-    public String getBooksDetails() {
-
-        return library.getBookDetails();
-
-    }
-
-
-    public String getInvalidChoiceNotification() {
-        return "Please Select a Valid Option!";
-    }
-
-
-    public String returnBook(Book book) {
-        return library.returnBook(book);
-    }
-
-    public String checkout(Book book) {
-        return library.checkout(book);
-
-
-    }
-
-    public String getBookList() {
-        return library.getBookList();
-    }
-
 
 }

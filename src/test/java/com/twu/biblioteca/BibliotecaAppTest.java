@@ -3,12 +3,6 @@ package com.twu.biblioteca;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-import java.util.ArrayList;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 class BibliotecaAppTest {
 
 
@@ -22,34 +16,6 @@ class BibliotecaAppTest {
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
-    @Test
-    public void shouldDisplayAListOfBooks() {
-        Book calculusBook = mock(Book.class);
-        Book mathematicsBook = mock(Book.class);
-        when(calculusBook.getName()).thenReturn("Calculus Made Easy\n");
-        when(mathematicsBook.getName()).thenReturn("Problem Solving Strategies\n");
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMessage = calculusBook.getName() + mathematicsBook.getName();
-
-        String actualMessage = bibliotecaApp.getBookList();
-
-        Assertions.assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    public void shouldDisplayAuthorsAndPublicationYearsOfBooks() {
-        Book calculusBook = mock(Book.class);
-        Book mathematicsBook = mock(Book.class);
-        when(calculusBook.getDetails()).thenReturn("Calculus Made Easy|Silvanus P.|2003\n");
-        when(mathematicsBook.getDetails()).thenReturn("Problem Solving Strategies|Arthur Engel|2005\n");
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-
-        String expectedBookList = calculusBook.getDetails() + mathematicsBook.getDetails();
-        String actualBookList = bibliotecaApp.getBooksDetails();
-
-        Assertions.assertEquals(expectedBookList, actualBookList);
-
-    }
 
     @Test
     void shouldGetOptionInTheMenu() {
@@ -60,118 +26,5 @@ class BibliotecaAppTest {
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
-
-    @Test
-    void shouldGetInvalidChoiceNotification() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedInvalidChoiceNotification = "Please Select a Valid Option!";
-
-        String actualInvalidChoiceNotification = bibliotecaApp.getInvalidChoiceNotification();
-
-        Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
-    }
-
-
-    @Test
-    void shouldQuitTheApplication() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-    }
-
-
-    @Test
-    void shouldNotBeInBookListIfABookIsCheckedOut() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        bibliotecaApp.checkout(calculusBook);
-        String expectedBookList = mathsBook.getName();
-
-        String actualBookList = bibliotecaApp.getBookList();
-
-        Assertions.assertEquals(expectedBookList, actualBookList);
-
-    }
-
-    @Test
-    void shouldReceiveSuccessfulNotificationIfBookIsSuccessfullyCheckedOut() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "Thank you! Enjoy the book";
-        String expectedBookList = mathsBook.getName();
-
-        String actualNotificationMessage = bibliotecaApp.checkout(calculusBook);
-        String actualBookList = bibliotecaApp.getBookList();
-
-        Assertions.assertEquals(expectedBookList, actualBookList);
-        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
-
-    }
-
-    @Test
-    void shouldReceiveUnSuccessfulNotificationIfBookIsSuccessfullyCheckedOut() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "Sorry,that book is not available";
-        String expectedBookList = calculusBook.getName() + mathsBook.getName();
-
-        String actualNotificationMessage = bibliotecaApp.checkout(new Book("book", "author", 1233));
-        String actualBookList = bibliotecaApp.getBookList();
-
-        Assertions.assertEquals(expectedBookList, actualBookList);
-        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
-
-    }
-
-    @Test
-    void shouldBeInBookListIfABookIsReturned() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedBookList = mathsBook.getName() + calculusBook.getName();
-
-        bibliotecaApp.checkout(calculusBook);
-        bibliotecaApp.returnBook(calculusBook);
-
-
-        String actualBookList = bibliotecaApp.getBookList();
-
-        Assertions.assertEquals(expectedBookList, actualBookList);
-
-    }
-
-    @Test
-    void shouldReceiveSuccessfulNotificationIfBookIsSuccessfullyReturned() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "Thank you for returning the book";
-
-
-        bibliotecaApp.checkout(calculusBook);
-        String actualNotificationMessage = bibliotecaApp.returnBook(calculusBook);
-
-
-        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
-
-    }
-
-    @Test
-    void shouldReceiveUnSuccessfulNotificationIfBookIsSuccessfullyReturned() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
-        Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "That is not a valid book to return";
-
-
-        bibliotecaApp.checkout(calculusBook);
-        String actualNotificationMessage = bibliotecaApp.returnBook(new Book("book", "author", 1233));
-
-
-        Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
-
-    }
-
 
 }
