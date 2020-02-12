@@ -14,26 +14,24 @@ class MenuTest {
     void shouldShowAppropriateMessageWhenInvalidInputIsEntered() throws IOException {
         Console mockConsole = mock(Console.class);
         Menu menu = new Menu(mockConsole);
-        when(mockConsole.readLine()).thenReturn("5", "4");
+        when(mockConsole.readLine()).thenReturn("5").thenReturn("4");
 
         menu.action(null, null);
 
         verify(mockConsole).print("Please Select a Valid Option!");
     }
+
     @Test
     void shouldShowListOfBooksWhenFirstOptionIsEntered() throws IOException {
         Console mockConsole = mock(Console.class);
         Library library = new Library();
         Menu menu = new Menu(mockConsole);
-        when(mockConsole.readLine()).thenReturn("1","4");
+        when(mockConsole.readLine()).thenReturn("1").thenReturn("4");
 
         menu.action(null, null);
 
         verify(mockConsole).print(library.getBookList());
     }
-
-
-
 
 
     @Test
