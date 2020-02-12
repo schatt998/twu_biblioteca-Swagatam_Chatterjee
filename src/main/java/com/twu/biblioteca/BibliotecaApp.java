@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -11,9 +10,7 @@ public class BibliotecaApp {
 
     private Library library;
     private MovieCenter movieCenter;
-    Movie movieNoOne = new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10");
-    Movie movieNoTwo = new Movie("Hera Pheri", "Priyadarshan", "2000", "10");
-    private ArrayList<Movie> moviesList = new ArrayList<>();
+
 
     Console console = new Console(System.out);
 
@@ -25,9 +22,7 @@ public class BibliotecaApp {
     public BibliotecaApp() {
         this.library = new Library();
         this.menu = new Menu(console);
-        moviesList.add(movieNoOne);
-        moviesList.add(movieNoTwo);
-        this.movieCenter=new MovieCenter();
+        this.movieCenter = new MovieCenter();
 
     }
 
