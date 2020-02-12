@@ -8,15 +8,20 @@ import java.io.PrintStream;
 
 public class Console {
 
-        private PrintStream outputStream;
-        public Console(PrintStream outputStream) {
-            this.outputStream = outputStream;
-        }
-        public String readLine() throws IOException {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            return bufferedReader.readLine();
-        }
+    private PrintStream outputStream;
 
+    public Console(PrintStream outputStream) {
+        this.outputStream = outputStream;
+    }
+
+    public String readLine() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        return bufferedReader.readLine();
+    }
+
+    public void print(String output) {
+         outputStream.print(output);
+    }
 }
 
 
