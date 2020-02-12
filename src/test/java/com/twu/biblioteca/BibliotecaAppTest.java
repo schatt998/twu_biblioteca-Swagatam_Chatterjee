@@ -26,5 +26,14 @@ class BibliotecaAppTest {
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
+    @Test
+    void shouldGetListOfMovies(){
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedMenu = "Phir Hera Pheri|2006|Priyadarshan|10";
+
+        String actualMenu = bibliotecaApp.getMovieList();
+
+        Assertions.assertEquals(expectedMenu, actualMenu);
+    }
 
 }

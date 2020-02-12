@@ -31,6 +31,10 @@ public class BibliotecaApp {
         return "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore\n";
     }
 
+    public String getMovieList(){
+        return "Phir Hera Pheri|2006|Priyadarshan|10";
+    }
+
 
     public String showMenu() {
         return menu.getMenu();
