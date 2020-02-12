@@ -53,7 +53,7 @@ class LibraryTest {
         Library library = new Library();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "Thank you! Enjoy the book";
+        String expectedNotificationMessage = "Thank you! Enjoy the book\n";
         String expectedBookList = mathsBook.getName();
 
         String actualNotificationMessage = library.checkout(calculusBook);
@@ -69,7 +69,7 @@ class LibraryTest {
         Library library = new Library();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "Sorry,that book is not available";
+        String expectedNotificationMessage = "Sorry,that book is not available\n";
         String expectedBookList = calculusBook.getName() + mathsBook.getName();
 
         String actualNotificationMessage = library.checkout(new Book("book", "author", 1233));
@@ -103,7 +103,7 @@ class LibraryTest {
 
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "Thank you for returning the book";
+        String expectedNotificationMessage = "Thank you for returning the book\n";
 
 
         library.checkout(calculusBook);
@@ -119,7 +119,7 @@ class LibraryTest {
         Library library = new Library();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
-        String expectedNotificationMessage = "That is not a valid book to return";
+        String expectedNotificationMessage = "That is not a valid book to return\n";
 
 
         library.checkout(calculusBook);

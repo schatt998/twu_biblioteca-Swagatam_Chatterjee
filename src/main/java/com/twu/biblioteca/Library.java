@@ -36,18 +36,18 @@ public class Library {
         if (bookList.contains(book)) {
             checkedOutBooks.add(book);
             bookList.remove(book);
-            return "Thank you! Enjoy the book";
+            return "Thank you! Enjoy the book\n";
         } else
-            return "Sorry,that book is not available";
+            return "Sorry,that book is not available\n";
     }
 
     public String returnBook(Book book) {
         if (checkedOutBooks.contains(book)) {
             bookList.add(book);
             checkedOutBooks.remove(book);
-            return "Thank you for returning the book";
+            return "Thank you for returning the book\n";
         }
-        return "That is not a valid book to return";
+        return "That is not a valid book to return\n";
 
     }
 }
