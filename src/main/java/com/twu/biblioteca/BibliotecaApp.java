@@ -10,6 +10,7 @@ public class BibliotecaApp {
 
 
     private Library library;
+    private MovieCenter movieCenter;
     Movie movieNoOne = new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10");
     Movie movieNoTwo = new Movie("Hera Pheri", "Priyadarshan", "2000", "10");
     private ArrayList<Movie> moviesList = new ArrayList<>();
@@ -26,6 +27,7 @@ public class BibliotecaApp {
         this.menu = new Menu(console);
         moviesList.add(movieNoOne);
         moviesList.add(movieNoTwo);
+        this.movieCenter=new MovieCenter();
 
     }
 
@@ -40,11 +42,7 @@ public class BibliotecaApp {
     }
 
     public String getMovieList() {
-        StringBuilder actualMovieList = new StringBuilder();
-        for (Movie movie : moviesList) {
-            actualMovieList.append(movie.getMovieInformation());
-        }
-        return actualMovieList.toString();
+        return movieCenter.getMovieList();
     }
 
 
@@ -54,7 +52,7 @@ public class BibliotecaApp {
 
 
     public void checkOut(Movie movie) {
-        moviesList.remove(movie);
+        movieCenter.checkOut(movie);
 
     }
 }
