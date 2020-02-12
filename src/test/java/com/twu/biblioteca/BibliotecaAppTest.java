@@ -26,16 +26,26 @@ class BibliotecaAppTest {
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
+
     @Test
-    void shouldGetListOfMovies(){
+    void shouldGetListOfMovies() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMenu = "Phir Hera Pheri|Priyadarshan|2006|10";
+        String expectedMenu = "Phir Hera Pheri|Priyadarshan|2006|10\nHera Pheri|Priyadarshan|2000|10\n";
 
         String actualMenu = bibliotecaApp.getMovieList();
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
 
+    @Test
+    void shouldNotBeInMovieListIfAMovieIsCheckedOut() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        String expectedMovieList = "Hera Pheri|Priyadarshan|2000|10\n";
 
+        bibliotecaApp.checkOut(new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10"));
+        String actualMovieList = bibliotecaApp.getMovieList();
 
+        Assertions.assertEquals(expectedMovieList, actualMovieList);
+
+    }
 }

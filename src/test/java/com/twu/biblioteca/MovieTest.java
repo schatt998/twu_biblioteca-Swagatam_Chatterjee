@@ -8,10 +8,10 @@ class MovieTest {
     @Test
     void shouldGetMovieInformation() {
         Movie movie = new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10");
-        String expectedMovieInformation = "Phir Hera Pheri|Priyadarshan|2006|10";
+        String expectedMovieInformation = "Phir Hera Pheri|Priyadarshan|2006|10\n";
 
-        String actualMovieIformation = movie.getMovieInformation();
+        String actualMovieInformation = movie.getMovieInformation();
 
-        Assertions.assertEquals(expectedMovieInformation, actualMovieIformation);
+        Assertions.assertEquals(expectedMovieInformation, actualMovieInformation);
     }
 }
