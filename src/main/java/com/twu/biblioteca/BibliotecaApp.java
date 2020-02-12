@@ -9,6 +9,7 @@ public class BibliotecaApp {
 
 
     private Library library;
+    private String MOVIELIST="Phir Hera Pheri|2006|Priyadarshan|10";
     Console console = new Console(System.out);
 
     private Menu menu;
@@ -32,7 +33,7 @@ public class BibliotecaApp {
     }
 
     public String getMovieList(){
-        return "Phir Hera Pheri|2006|Priyadarshan|10";
+        return MOVIELIST;
     }
 
 
