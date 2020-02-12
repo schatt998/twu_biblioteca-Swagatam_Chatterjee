@@ -17,5 +17,9 @@ public class MovieCenter {
         }
         return actualMovieList.toString();
     }
+    public void checkOut(Movie movie) {
+        moviesList.remove(movie);
+
+    }
 
 }
