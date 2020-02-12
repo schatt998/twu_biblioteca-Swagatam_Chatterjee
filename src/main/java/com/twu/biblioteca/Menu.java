@@ -7,12 +7,14 @@ import java.util.Scanner;
 public class Menu {
     private ArrayList menuOptions = new ArrayList<>();
     private Library library = new Library();
+    private boolean flag=true;
 
     public Menu() {
         menuOptions.add(MenuOptions.LIST_OF_BOOKS);
         menuOptions.add(MenuOptions.CHECKOUT);
         menuOptions.add(MenuOptions.RETURN);
         menuOptions.add(MenuOptions.QUIT);
+
     }
 
     public String getMenu() {
@@ -20,7 +22,7 @@ public class Menu {
     }
 
     public void action(Scanner stringScanner, Scanner integerScanner) {
-        while (true) {
+        while (flag) {
             int choice = stringScanner.nextInt();
             switch (choice) {
                 case 1:
@@ -41,7 +43,7 @@ public class Menu {
                     System.out.println(returnBook(checkedOutBook));
                     break;
                 case 4:
-                    System.exit(0);
+                    flag=exitApplication();
                     break;
                 default:
                     System.out.println(getInvalidChoiceNotification());
@@ -69,6 +71,9 @@ public class Menu {
         return library.checkout(book);
 
 
+    }
+    public boolean exitApplication(){
+        return false;
     }
 
     public String getBookList() {

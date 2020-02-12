@@ -30,7 +30,9 @@ class MenuTest {
     }
     @Test
     void shouldQuitTheApplication() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        Menu menu = new Menu();
+        boolean actualFlag=menu.exitApplication();
+        Assertions.assertEquals(false,actualFlag);
     }
 
 
