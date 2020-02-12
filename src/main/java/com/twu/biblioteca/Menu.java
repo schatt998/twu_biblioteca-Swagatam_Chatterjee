@@ -20,6 +20,13 @@ public class Menu {
     public String getMenu() {
         return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n";
     }
+    private static  Book takeInput(Scanner stringScanner, Scanner integerScanner){
+        String bookName = integerScanner.nextLine();
+        String authorName = integerScanner.nextLine();
+        int publicationYear = stringScanner.nextInt();
+        return new Book(bookName, authorName, publicationYear);
+
+    }
 
     public void action(Scanner stringScanner, Scanner integerScanner) {
         while (flag) {
@@ -29,17 +36,11 @@ public class Menu {
                     System.out.println(getBookList());
                     break;
                 case 2:
-                    String bookName = integerScanner.nextLine();
-                    String authorName = integerScanner.nextLine();
-                    int publicationYear = stringScanner.nextInt();
-                    Book requestedBook = new Book(bookName, authorName, publicationYear);
+                    Book requestedBook = takeInput(stringScanner, integerScanner);
                     System.out.println(checkout(requestedBook));
                     break;
                 case 3:
-                    String bookName1 = integerScanner.nextLine();
-                    String authorName1 = integerScanner.nextLine();
-                    int publicationYear1 = stringScanner.nextInt();
-                    Book checkedOutBook = new Book(bookName1, authorName1, publicationYear1);
+                    Book checkedOutBook = takeInput(stringScanner, integerScanner);
                     System.out.println(returnBook(checkedOutBook));
                     break;
                 case 4:
