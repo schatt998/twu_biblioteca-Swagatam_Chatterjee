@@ -21,8 +21,8 @@ public class BibliotecaApp {
     }
 
     public void start() {
-        System.out.println(showWelcomeMessage());
-        System.out.println(showMenu());
+        console.print(showWelcomeMessage());
+        console.print(showMenu());
         menu.action(stringScanner, integerScanner);
     }
 

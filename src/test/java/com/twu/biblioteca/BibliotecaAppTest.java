@@ -9,7 +9,7 @@ class BibliotecaAppTest {
     @Test
     public void shouldShowWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        String expectedMessage = "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore";
+        String expectedMessage = "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore\n";
 
         String actualMessage = bibliotecaApp.showWelcomeMessage();
 
