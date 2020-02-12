@@ -78,7 +78,6 @@ class BibliotecaAppTest {
     }
 
 
-
     @Test
     void shouldNotBeInBookListIfABookIsCheckedOut() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();

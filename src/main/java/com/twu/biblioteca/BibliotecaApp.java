@@ -22,34 +22,7 @@ public class BibliotecaApp {
     public void start() {
         System.out.println(showWelcomeMessage());
         System.out.println(showMenu());
-
-        while (true) {
-            int choice = stringScanner.nextInt();
-            switch (choice) {
-                case 1:
-                    getBookList();
-                    break;
-                case 2:
-                    String bookName = integerScanner.nextLine();
-                    String authorName = integerScanner.nextLine();
-                    int publicationYear = stringScanner.nextInt();
-                    Book requestedBook = new Book(bookName, authorName, publicationYear);
-                    System.out.println(checkout(requestedBook));
-                    break;
-                case 3:
-                    String bookName1 = integerScanner.nextLine();
-                    String authorName1 = integerScanner.nextLine();
-                    int publicationYear1 = stringScanner.nextInt();
-                    Book checkedOutBook = new Book(bookName1, authorName1, publicationYear1);
-                    System.out.println(returnBook(checkedOutBook));
-                    break;
-                case 4:
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println(getInvalidChoiceNotification());
-            }
-        }
+        menu.action(stringScanner, integerScanner);
     }
 
     public String showWelcomeMessage() {
@@ -86,7 +59,6 @@ public class BibliotecaApp {
     public String getBookList() {
         return library.getBookList();
     }
-
 
 
 }
