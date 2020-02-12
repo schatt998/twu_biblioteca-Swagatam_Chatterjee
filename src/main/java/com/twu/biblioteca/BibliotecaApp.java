@@ -10,12 +10,7 @@ public class BibliotecaApp {
 
 
     private Library library;
-    private String MOVIENAME="Phir Hera Pheri";
-    private String MOVIEDIRECTOR="Priyadarshan";
-    private String MOVIERELAESEYEAR="2006";
-    private String MOVIERATING="10";
-    private String INFORMATIONOFMOVIESINTHELIST;
-
+    Movie movie = new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10");
     Console console = new Console(System.out);
 
     private Menu menu;
@@ -26,6 +21,7 @@ public class BibliotecaApp {
     public BibliotecaApp() {
         this.library = new Library();
         this.menu = new Menu(console);
+
     }
 
     public void start() throws IOException {
@@ -37,13 +33,10 @@ public class BibliotecaApp {
     public String showWelcomeMessage() {
         return "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore\n";
     }
-    private  String getMovieDetails(){
-        return MOVIENAME+"|"+MOVIEDIRECTOR+"|"+MOVIERELAESEYEAR+"|"+MOVIERATING;
-    }
 
     public String getMovieList(){
 
-        return getMovieDetails();
+        return movie.getMovieInformation();
     }
 
 
