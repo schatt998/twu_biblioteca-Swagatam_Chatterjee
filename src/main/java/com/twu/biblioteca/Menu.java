@@ -24,7 +24,7 @@ public class Menu {
             int choice = stringScanner.nextInt();
             switch (choice) {
                 case 1:
-                    getBookList();
+                    System.out.println(getBookList());
                     break;
                 case 2:
                     String bookName = integerScanner.nextLine();

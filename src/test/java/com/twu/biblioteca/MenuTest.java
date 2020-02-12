@@ -19,4 +19,14 @@ class MenuTest {
 
         Assertions.assertEquals(expectedMenu, actualMenu);
     }
+    @Test
+    void shouldGetInvalidChoiceNotification() {
+        Menu menu = new Menu();
+        String expectedInvalidChoiceNotification = "Please Select a Valid Option!";
+
+        String actualInvalidChoiceNotification = menu.getInvalidChoiceNotification();
+
+        Assertions.assertEquals(expectedInvalidChoiceNotification, actualInvalidChoiceNotification);
+    }
+
 }
