@@ -21,6 +21,7 @@ public class Console {
 
     public void print(String output) {
          outputStream.print(output);
+         outputStream.print("\n");
     }
 }
 

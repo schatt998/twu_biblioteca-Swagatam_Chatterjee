@@ -52,7 +52,7 @@ public class Menu {
                     flag = exitApplication();
                     break;
                 default:
-                    console.print(getInvalidChoiceNotification());
+                    console.print("Please Select a Valid Option!");
             }
         }
     }

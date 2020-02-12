@@ -20,6 +20,19 @@ class MenuTest {
 
         verify(mockConsole).print("Please Select a Valid Option!");
     }
+    @Test
+    void shouldShowListOfBooksWhenFirstOptionIsEntered() throws IOException {
+        Console mockConsole = mock(Console.class);
+        Library library = new Library();
+        Menu menu = new Menu(mockConsole);
+        when(mockConsole.readLine()).thenReturn("1","4");
+
+        menu.action(null, null);
+
+        verify(mockConsole).print(library.getBookList());
+    }
+
+
 
 
 
