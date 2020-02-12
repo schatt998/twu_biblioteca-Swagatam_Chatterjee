@@ -37,10 +37,13 @@ public class BibliotecaApp {
     public String showWelcomeMessage() {
         return "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore\n";
     }
+    private  String getMovieDetails(){
+        return MOVIENAME+"|"+MOVIEDIRECTOR+"|"+MOVIERELAESEYEAR+"|"+MOVIERATING;
+    }
 
     public String getMovieList(){
-        INFORMATIONOFMOVIESINTHELIST=MOVIENAME+"|"+MOVIEDIRECTOR+"|"+MOVIERELAESEYEAR+"|"+MOVIERATING;
-        return INFORMATIONOFMOVIESINTHELIST;
+
+        return getMovieDetails();
     }
 
 
