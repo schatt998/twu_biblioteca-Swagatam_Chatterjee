@@ -8,6 +8,7 @@ public class BibliotecaApp {
 
 
     private Library library;
+    Console console = new Console(System.out);
 
     private Menu menu;
     Scanner stringScanner = new Scanner(System.in);
@@ -26,7 +27,7 @@ public class BibliotecaApp {
     }
 
     public String showWelcomeMessage() {
-        return "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore";
+        return "Welcome To Biblioteca.Your one-stop-shop for great book titles in Bangalore\n";
     }
 
 
