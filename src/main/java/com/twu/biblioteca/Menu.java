@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Menu {
-    private ArrayList menuOptions = new ArrayList<>();
-    private Library library = new Library();
-    private boolean flag=true;
-    private static Console console =new Console(System.out);
 
-    public Menu() {
+public class Menu {
+    private ArrayList<MenuOptions> menuOptions = new ArrayList<>();
+    private Library library = new Library();
+    private boolean flag = true;
+    private Console console;
+
+    public Menu(Console console) {
+        this.console = console;
         menuOptions.add(MenuOptions.LIST_OF_BOOKS);
         menuOptions.add(MenuOptions.CHECKOUT);
         menuOptions.add(MenuOptions.RETURN);
@@ -22,7 +24,8 @@ public class Menu {
     public String getMenu() {
         return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n";
     }
-    private static  Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
+
+    private Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
         String bookName = console.readLine();
         String authorName = console.readLine();
         int publicationYear = Integer.parseInt(console.readLine());
@@ -32,7 +35,7 @@ public class Menu {
 
     public void action(Scanner stringScanner, Scanner integerScanner) throws IOException {
         while (flag) {
-            int choice = stringScanner.nextInt();
+            int choice = Integer.parseInt(console.readLine());
             switch (choice) {
                 case 1:
                     console.print(getBookList());
@@ -46,7 +49,7 @@ public class Menu {
                     console.print(returnBook(checkedOutBook));
                     break;
                 case 4:
-                    flag=exitApplication();
+                    flag = exitApplication();
                     break;
                 default:
                     console.print(getInvalidChoiceNotification());
@@ -75,7 +78,8 @@ public class Menu {
 
 
     }
-    public boolean exitApplication(){
+
+    public boolean exitApplication() {
         return false;
     }
 

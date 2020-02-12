@@ -18,7 +18,7 @@ public class BibliotecaApp {
 
     public BibliotecaApp() {
         this.library = new Library();
-        this.menu = new Menu();
+        this.menu = new Menu(console);
     }
 
     public void start() throws IOException {
