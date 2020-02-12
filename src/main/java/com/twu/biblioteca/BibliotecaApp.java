@@ -12,7 +12,7 @@ public class BibliotecaApp {
     private Library library;
     Movie movieNoOne = new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10");
     Movie movieNoTwo = new Movie("Hera Pheri", "Priyadarshan", "2000", "10");
-    private ArrayList<Movie> moviesList=new ArrayList<>();
+    private ArrayList<Movie> moviesList = new ArrayList<>();
 
     Console console = new Console(System.out);
 
@@ -40,12 +40,11 @@ public class BibliotecaApp {
     }
 
     public String getMovieList() {
-
-        StringBuilder actualMovieList=new StringBuilder();
-        for(Movie movie:moviesList){
+        StringBuilder actualMovieList = new StringBuilder();
+        for (Movie movie : moviesList) {
             actualMovieList.append(movie.getMovieInformation());
         }
-        return  actualMovieList.toString();
+        return actualMovieList.toString();
     }
 
 
