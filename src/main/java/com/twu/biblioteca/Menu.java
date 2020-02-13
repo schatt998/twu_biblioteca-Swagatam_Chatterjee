@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class Menu {
     private ArrayList<MenuOptions> menuOptions = new ArrayList<>();
     private Library bookLibrary = new Library();
-    private Library movieLibrary=new Library();
-    private Library library=new Library();
+    private Library movieLibrary = new Library();
+    private Library library = new Library();
     private boolean flag = true;
     private Console console;
     private Movie movie;
@@ -28,9 +27,8 @@ public class Menu {
     }
 
 
-
     public String getMenu() {
-        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5."+menuOptions.get(4)+"\n6."+menuOptions.get(5)+"\n";
+        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5." + menuOptions.get(4) + "\n6." + menuOptions.get(5) + "\n";
     }
 
     private Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
@@ -40,13 +38,14 @@ public class Menu {
         return new Book(bookName, authorName, publicationYear);
 
     }
+
     private Movie takeInput3(Scanner stringScanner, Scanner integerScanner) throws IOException {
         String bookName = console.readLine();
         String authorName = console.readLine();
         String authorName2 = console.readLine();
         String authorName3 = console.readLine();
 
-        return new Movie(bookName, authorName, authorName2,authorName3);
+        return new Movie(bookName, authorName, authorName2, authorName3);
 
     }
 
@@ -59,6 +58,7 @@ public class Menu {
                     break;
                 case 2:
                     console.print("Enter Your Log-In ID and Password \n");
+                    console.readLine();
                     Book requestedBook = takeInput(stringScanner, integerScanner);
                     console.print(checkoutBook(requestedBook));
                     break;
@@ -105,6 +105,7 @@ public class Menu {
 
 
     }
+
     public String checkoutMovie(Movie book) {
         return library.checkoutMovie(book);
 
@@ -118,6 +119,7 @@ public class Menu {
     public String getBookList() {
         return library.getBookList();
     }
+
     public String getMovieList() {
         return library.getMovieList();
     }

@@ -165,8 +165,21 @@ class MenuTest {
 
         menu.action(null, null);
 
-        verify(mockConsole,times(1)).print("Enter Your Log-In ID and Password \n");
+        verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
 
 
     }
+
+    @Test
+    void shouldAllowToEnterLibraryIdAndPassword() throws IOException {
+        Console mockConsole = mock(Console.class);
+        Menu menu = new Menu(mockConsole);
+        when(mockConsole.readLine()).thenReturn("2").thenReturn("4");
+
+        menu.action(null, null);
+
+        verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
+        verify(mockConsole, times(4)).readLine();
+    }
+
 }
