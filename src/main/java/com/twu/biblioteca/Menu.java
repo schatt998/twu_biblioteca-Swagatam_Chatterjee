@@ -27,6 +27,8 @@ public class Menu {
 
     }
 
+
+
     public String getMenu() {
         return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5."+menuOptions.get(4)+"\n6."+menuOptions.get(5)+"\n";
     }
@@ -56,6 +58,7 @@ public class Menu {
                     console.print(getBookList());
                     break;
                 case 2:
+                    console.print("Enter Your Log-In ID and Password \n");
                     Book requestedBook = takeInput(stringScanner, integerScanner);
                     console.print(checkoutBook(requestedBook));
                     break;
