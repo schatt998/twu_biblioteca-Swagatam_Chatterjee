@@ -62,7 +62,7 @@ public class Menu {
             return false;
     }
 
-    public void action(Scanner stringScanner, Scanner integerScanner) throws IOException {
+    public void action(Scanner stringScanner, Scanner integerScanner,User user) throws IOException {
         while (flag) {
             int choice = Integer.parseInt(console.readLine());
             switch (choice) {

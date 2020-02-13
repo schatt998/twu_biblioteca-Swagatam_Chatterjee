@@ -15,7 +15,7 @@ class MenuTest {
         Menu menu = new Menu(mockConsole);
         when(mockConsole.readLine()).thenReturn("8").thenReturn("4");
 
-        menu.action(null, null);
+        menu.action(null, null,mock(User.class));
 
         verify(mockConsole).print("Please Select a Valid Option!");
     }
@@ -27,7 +27,7 @@ class MenuTest {
         Menu menu = new Menu(mockConsole);
         when(mockConsole.readLine()).thenReturn("1").thenReturn("4");
 
-        menu.action(null, null);
+        menu.action(null, null,mock(User.class));
 
         verify(mockConsole).print(library.getBookList());
     }
@@ -163,7 +163,7 @@ class MenuTest {
         Menu menu = new Menu(mockConsole);
         when(mockConsole.readLine()).thenReturn("2").thenReturn("4");
 
-        menu.action(null, null);
+        menu.action(null, null,mock(User.class));
 
         verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
 
@@ -176,7 +176,7 @@ class MenuTest {
         Menu menu = new Menu(mockConsole);
         when(mockConsole.readLine()).thenReturn("2").thenReturn("4");
 
-        menu.action(null, null);
+        menu.action(null, null,mock(User.class));
 
         verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
         verify(mockConsole, times(3)).readLine();
@@ -188,7 +188,7 @@ class MenuTest {
         Menu menu = new Menu(mockConsole);
         when(mockConsole.readLine()).thenReturn("2").thenReturn("xxx-xxxx|214", "4");
 
-        menu.action(null, null);
+        menu.action(null, null,mock(User.class));
 
         verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
         verify(mockConsole, times(3)).readLine();

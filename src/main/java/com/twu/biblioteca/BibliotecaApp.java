@@ -10,6 +10,7 @@ public class BibliotecaApp {
 
     private Library library;
     private MovieCenter movieCenter;
+    private User user;
 
 
     Console console = new Console(System.out);
@@ -19,7 +20,8 @@ public class BibliotecaApp {
     Scanner integerScanner = new Scanner(System.in);
 
 
-    public BibliotecaApp() {
+    public BibliotecaApp(User user) {
+        this.user=user;
         this.menu = new Menu(console);
       this.movieCenter = new MovieCenter();
 
@@ -28,7 +30,7 @@ public class BibliotecaApp {
     public void start() throws IOException {
         console.print(showWelcomeMessage());
         console.print(showMenu());
-        menu.action(stringScanner, integerScanner);
+        menu.action(stringScanner, integerScanner,user);
     }
 
     public String showWelcomeMessage() {
