@@ -55,6 +55,13 @@ public class Menu {
         return console.readLine();
     }
 
+    private boolean isValid(String userCredentials) {
+        if (userCredentials.equals("xxx-xxxx|234"))
+            return true;
+        else
+            return false;
+    }
+
     public void action(Scanner stringScanner, Scanner integerScanner) throws IOException {
         while (flag) {
             int choice = Integer.parseInt(console.readLine());
@@ -64,7 +71,7 @@ public class Menu {
                     break;
                 case 2:
                     String userCredentials = askAndGetUserCredentials();
-                    if (userCredentials.equals("xxx-xxxx|234")) {
+                    if (isValid(userCredentials)) {
                         Book requestedBook = takeInput(stringScanner, integerScanner);
                         console.print(checkoutBook(requestedBook));
                     }
