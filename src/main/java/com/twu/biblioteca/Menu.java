@@ -49,6 +49,12 @@ public class Menu {
 
     }
 
+    private void askAndGetUserCredentials() throws IOException {
+
+        console.print("Enter Your Log-In ID and Password \n");
+        console.readLine();
+    }
+
     public void action(Scanner stringScanner, Scanner integerScanner) throws IOException {
         while (flag) {
             int choice = Integer.parseInt(console.readLine());
@@ -57,8 +63,7 @@ public class Menu {
                     console.print(getBookList());
                     break;
                 case 2:
-                    console.print("Enter Your Log-In ID and Password \n");
-                    console.readLine();
+                    askAndGetUserCredentials();
                     Book requestedBook = takeInput(stringScanner, integerScanner);
                     console.print(checkoutBook(requestedBook));
                     break;
@@ -83,12 +88,6 @@ public class Menu {
             }
         }
     }
-
-//    public String getBooksDetails() {
-//
-//        return library.getItemDetails();
-//
-//    }
 
 
     public String getInvalidChoiceNotification() {
