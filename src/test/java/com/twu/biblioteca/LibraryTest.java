@@ -130,5 +130,11 @@ class LibraryTest {
 
     }
 
+    @Test
+    void shouldReturnTrueIfAUserIsAValidUser() {
+        User user = new User("222-3333", "233");
+        Library library=new Library();
 
+        Assertions.assertTrue(library.logIn(user));
+    }
 }

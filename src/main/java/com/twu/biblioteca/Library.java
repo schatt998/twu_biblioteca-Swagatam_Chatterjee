@@ -9,9 +9,11 @@ public class Library {
     private ArrayList<Book> bookList;
     private ArrayList<Movie> movieList;
     private ArrayList<Item> checkedOutItems = new ArrayList<>();
+    private ArrayList<User> validUserList=new ArrayList<>();
 
     public Library() {
 
+        this.validUserList.add(new User("222-3333","233"));
         this.bookList = new ArrayList<>(Arrays.asList(new Book("Calculus Made Easy", "Silvanus P.", 2003), new Book("Problem Solving Strategies", "Arthur Engel", 2005)));
         this.movieList = new ArrayList<>(Arrays.asList(new Movie("Hera Pheri", "Priyadarshan", "2000","10"), new Movie("Phir Hera Pheri", "Priyadarshan", "2006","10")));
 
@@ -44,7 +46,14 @@ public class Library {
         return actualBookDetails.toString();
     }
 
-
+    public boolean logIn(User user){
+        if(validUserList.contains(user)){
+            user.logIn();
+            return true;
+        }
+        else
+            return false;
+    }
     public String checkoutBook(Book item) {
         if (bookList.contains(item)) {
             checkedOutItems.add( item);
