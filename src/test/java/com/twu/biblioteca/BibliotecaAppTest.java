@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class BibliotecaAppTest {
 
 
@@ -55,6 +57,6 @@ class BibliotecaAppTest {
 
         boolean actualResponse=bibliotecaApp.isValid("xxx-xxxx|234");
 
-        Assertions.assertTrue(actualResponse);
+        assertTrue(actualResponse);
     }
 }
