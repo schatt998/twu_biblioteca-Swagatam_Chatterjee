@@ -182,5 +182,17 @@ class MenuTest {
         verify(mockConsole, times(4)).readLine();
     }
 
+    @Test
+    void shouldNotAllowToCheckOutABookIfLibraryIdAndPasswordIsNotValid() throws IOException {
+        Console mockConsole = mock(Console.class);
+        Menu menu = new Menu(mockConsole);
+        when(mockConsole.readLine()).thenReturn("2").thenReturn("xxx-xxxx|214", "4");
+
+        menu.action(null, null);
+
+        verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
+        verify(mockConsole, times(3)).readLine();
+    }
+
 
 }

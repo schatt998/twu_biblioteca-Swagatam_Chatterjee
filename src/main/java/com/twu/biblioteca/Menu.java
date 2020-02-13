@@ -49,10 +49,10 @@ public class Menu {
 
     }
 
-    private void askAndGetUserCredentials() throws IOException {
+    private String askAndGetUserCredentials() throws IOException {
 
         console.print("Enter Your Log-In ID and Password \n");
-        console.readLine();
+        return console.readLine();
     }
 
     public void action(Scanner stringScanner, Scanner integerScanner) throws IOException {
@@ -63,9 +63,11 @@ public class Menu {
                     console.print(getBookList());
                     break;
                 case 2:
-                    askAndGetUserCredentials();
-                    Book requestedBook = takeInput(stringScanner, integerScanner);
-                    console.print(checkoutBook(requestedBook));
+                    String userCredentials = askAndGetUserCredentials();
+                    if (userCredentials.equals("xxx-xxxx|234")) {
+                        Book requestedBook = takeInput(stringScanner, integerScanner);
+                        console.print(checkoutBook(requestedBook));
+                    }
                     break;
                 case 3:
                     Book checkedOutBook = takeInput(stringScanner, integerScanner);
