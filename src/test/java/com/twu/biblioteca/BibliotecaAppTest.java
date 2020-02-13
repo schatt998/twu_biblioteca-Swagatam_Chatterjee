@@ -49,5 +49,12 @@ class BibliotecaAppTest {
 
     }
 
+    @Test
+    void shouldReturnTrueIfAUserCredentialsAreValid() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
 
+        boolean actualResponse=bibliotecaApp.isValid("xxx-xxxx|234");
+
+        Assertions.assertTrue(actualResponse);
+    }
 }

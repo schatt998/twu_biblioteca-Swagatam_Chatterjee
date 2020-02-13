@@ -49,4 +49,11 @@ public class BibliotecaApp {
         movieCenter.checkOut(movie);
 
     }
+    public  boolean isValid(String userCredentials) {
+        if (userCredentials.equals("xxx-xxxx|234"))
+            return true;
+        else
+            return false;
+    }
+
 }

@@ -179,7 +179,7 @@ class MenuTest {
         menu.action(null, null);
 
         verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
-        verify(mockConsole, times(4)).readLine();
+        verify(mockConsole, times(3)).readLine();
     }
 
     @Test
