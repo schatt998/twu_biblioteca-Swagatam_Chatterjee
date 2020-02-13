@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Library {
 
@@ -9,6 +10,7 @@ public class Library {
     private ArrayList<Book> bookList;
     private ArrayList<Movie> movieList;
     private ArrayList<Item> checkedOutItems = new ArrayList<>();
+    private HashMap<Book,User> checkoutBookLog=new HashMap<>();
     private ArrayList<User> validUserList=new ArrayList<>();
 
     public Library() {
@@ -54,9 +56,10 @@ public class Library {
         else
             return false;
     }
-    public String checkoutBook(Book item) {
+    public String checkoutBook(Book item,User user) {
         if (bookList.contains(item)) {
             checkedOutItems.add( item);
+            checkoutBookLog.put(item,user);
             bookList.remove(item);
             return "Thank you! Enjoy the book\n";
         } else

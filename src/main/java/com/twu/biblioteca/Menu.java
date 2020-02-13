@@ -49,10 +49,10 @@ public class Menu {
 
     }
 
-    private String askAndGetUserCredentials() throws IOException {
+    private void askAndGetUserCredentials() throws IOException {
 
         console.print("Enter Your Log-In ID and Password \n");
-        return console.readLine();
+
     }
 
     private boolean isValid(String userCredentials) {
@@ -70,10 +70,10 @@ public class Menu {
                     console.print(getBookList());
                     break;
                 case 2:
-                    String userCredentials = askAndGetUserCredentials();
-                    if (isValid(userCredentials)) {
+                    askAndGetUserCredentials();
+                    if (library.logIn(user)) {
                         Book requestedBook = takeInput(stringScanner, integerScanner);
-                        console.print(checkoutBook(requestedBook));
+                        console.print(checkoutBook(requestedBook,user));
                     }
                     break;
                 case 3:
@@ -108,8 +108,8 @@ public class Menu {
         return library.returnBook(book);
     }
 
-    public String checkoutBook(Book book) {
-        return library.checkoutBook(book);
+    public String checkoutBook(Book book,User user) {
+        return library.checkoutBook(book,user);
 
 
     }

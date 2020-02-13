@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,6 +12,11 @@ import static org.mockito.Mockito.when;
 
 
 class LibraryTest {
+    User user;
+    @BeforeEach
+    void setUser(){
+        user = new User("222-3333", "233");
+    }
     @Test
     void shouldReturnAvailableBooks() {
         Library library = new Library();
@@ -42,7 +48,7 @@ class LibraryTest {
         Library library = new Library();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         String expectedBookList = new Book("Problem Solving Strategies", "Arthur Engel", 2005).getName();
-        library.checkoutBook(calculusBook);
+        library.checkoutBook(calculusBook,user);
         String actualBookList = library.getBookList();
 
         Assertions.assertEquals(expectedBookList, actualBookList);
@@ -56,7 +62,7 @@ class LibraryTest {
         String expectedNotificationMessage = "Thank you! Enjoy the book\n";
         String expectedBookList = mathsBook.getName();
 
-        String actualNotificationMessage = library.checkoutBook(calculusBook);
+        String actualNotificationMessage = library.checkoutBook(calculusBook,user);
         String actualBookList = library.getBookList();
 
         Assertions.assertEquals(expectedBookList, actualBookList);
@@ -72,7 +78,7 @@ class LibraryTest {
         String expectedNotificationMessage = "Sorry,that book is not available\n";
         String expectedBookList = calculusBook.getName() + mathsBook.getName();
 
-        String actualNotificationMessage = library.checkoutBook(new Book("book", "author", 1233));
+        String actualNotificationMessage = library.checkoutBook(new Book("book", "author", 1233),user);
         String actualBookList = library.getBookList();
 
         Assertions.assertEquals(expectedBookList, actualBookList);
@@ -87,7 +93,7 @@ class LibraryTest {
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
         String expectedBookList = mathsBook.getName() + calculusBook.getName();
 
-        library.checkoutBook(calculusBook);
+        library.checkoutBook(calculusBook,user);
         library.returnBook(calculusBook);
 
 
@@ -106,7 +112,7 @@ class LibraryTest {
         String expectedNotificationMessage = "Thank you for returning the book\n";
 
 
-        library.checkoutBook(calculusBook);
+        library.checkoutBook(calculusBook,user);
         String actualNotificationMessage = library.returnBook(calculusBook);
 
 
@@ -122,7 +128,7 @@ class LibraryTest {
         String expectedNotificationMessage = "That is not a valid book to return\n";
 
 
-        library.checkoutBook(calculusBook);
+        library.checkoutBook(calculusBook,user);
         String actualNotificationMessage = library.returnBook(new Book("book", "author", 1233));
 
 
@@ -132,7 +138,7 @@ class LibraryTest {
 
     @Test
     void shouldReturnTrueIfAUserIsAValidUser() {
-        User user = new User("222-3333", "233");
+
         Library library=new Library();
 
         Assertions.assertTrue(library.logIn(user));
