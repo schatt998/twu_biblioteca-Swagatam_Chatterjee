@@ -14,6 +14,7 @@ public class Menu {
     private Console console;
     private Movie movie;
     private Book book;
+    private User currentUser;
 
     public Menu(Console console) {
         this.console = console;
@@ -71,7 +72,10 @@ public class Menu {
                     break;
                 case 2:
                     askAndGetUserCredentials();
+                    currentUser=getUser();
                     if (library.logIn(user)) {
+                        console.print("Logged In Successful");
+                        console.print("Request Book Here");
                         Book requestedBook = takeInput(stringScanner, integerScanner);
                         console.print(checkoutBook(requestedBook,user));
                     }
@@ -96,6 +100,10 @@ public class Menu {
                     console.print("Please Select a Valid Option!");
             }
         }
+    }
+
+    private User getUser() throws IOException {
+        return new User(console.readLine(),console.readLine());
     }
 
 
