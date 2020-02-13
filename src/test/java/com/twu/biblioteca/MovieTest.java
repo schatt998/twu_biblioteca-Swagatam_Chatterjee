@@ -10,7 +10,7 @@ class MovieTest {
         Movie movie = new Movie("Phir Hera Pheri", "Priyadarshan", "2006", "10");
         String expectedMovieInformation = "Phir Hera Pheri|Priyadarshan|2006|10\n";
 
-        String actualMovieInformation = movie.getMovieInformation();
+        String actualMovieInformation = movie.getDetails();
 
         Assertions.assertEquals(expectedMovieInformation, actualMovieInformation);
     }

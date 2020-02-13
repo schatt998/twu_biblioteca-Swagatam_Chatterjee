@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.Objects;
 
-public class Movie {
+public class Movie implements Item {
     private String movieName;
     private String movieDirector;
     private String movieReleaseYear;
@@ -15,9 +15,6 @@ public class Movie {
         this.movieRating = movieRating;
     }
 
-    public String getMovieInformation() {
-        return movieName + "|" + movieDirector + "|" + movieReleaseYear + "|" + movieRating+"\n";
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -33,5 +30,15 @@ public class Movie {
     @Override
     public int hashCode() {
         return Objects.hash(movieName, movieDirector, movieReleaseYear, movieRating);
+    }
+
+    @Override
+    public String getName() {
+        return movieName+"\n";
+    }
+
+    @Override
+    public String getDetails() {
+        return movieName+"|"+movieDirector+"|"+movieReleaseYear+"|"+movieRating+"\n";
     }
 }

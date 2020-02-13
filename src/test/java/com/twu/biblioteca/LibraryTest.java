@@ -42,7 +42,7 @@ class LibraryTest {
         Library library = new Library();
         Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
         String expectedBookList = new Book("Problem Solving Strategies", "Arthur Engel", 2005).getName();
-        library.checkout(calculusBook);
+        library.checkoutBook(calculusBook);
         String actualBookList = library.getBookList();
 
         Assertions.assertEquals(expectedBookList, actualBookList);
@@ -56,7 +56,7 @@ class LibraryTest {
         String expectedNotificationMessage = "Thank you! Enjoy the book\n";
         String expectedBookList = mathsBook.getName();
 
-        String actualNotificationMessage = library.checkout(calculusBook);
+        String actualNotificationMessage = library.checkoutBook(calculusBook);
         String actualBookList = library.getBookList();
 
         Assertions.assertEquals(expectedBookList, actualBookList);
@@ -72,7 +72,7 @@ class LibraryTest {
         String expectedNotificationMessage = "Sorry,that book is not available\n";
         String expectedBookList = calculusBook.getName() + mathsBook.getName();
 
-        String actualNotificationMessage = library.checkout(new Book("book", "author", 1233));
+        String actualNotificationMessage = library.checkoutBook(new Book("book", "author", 1233));
         String actualBookList = library.getBookList();
 
         Assertions.assertEquals(expectedBookList, actualBookList);
@@ -87,7 +87,7 @@ class LibraryTest {
         Book mathsBook = new Book("Problem Solving Strategies", "Arthur Engel", 2005);
         String expectedBookList = mathsBook.getName() + calculusBook.getName();
 
-        library.checkout(calculusBook);
+        library.checkoutBook(calculusBook);
         library.returnBook(calculusBook);
 
 
@@ -106,7 +106,7 @@ class LibraryTest {
         String expectedNotificationMessage = "Thank you for returning the book\n";
 
 
-        library.checkout(calculusBook);
+        library.checkoutBook(calculusBook);
         String actualNotificationMessage = library.returnBook(calculusBook);
 
 
@@ -122,7 +122,7 @@ class LibraryTest {
         String expectedNotificationMessage = "That is not a valid book to return\n";
 
 
-        library.checkout(calculusBook);
+        library.checkoutBook(calculusBook);
         String actualNotificationMessage = library.returnBook(new Book("book", "author", 1233));
 
 

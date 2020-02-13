@@ -13,7 +13,7 @@ public class MovieCenter {
     public String getMovieList() {
         StringBuilder actualMovieList = new StringBuilder();
         for (Movie movie : moviesList) {
-            actualMovieList.append(movie.getMovieInformation());
+            actualMovieList.append(movie.getDetails());
         }
         return actualMovieList.toString();
     }
@@ -23,3 +23,9 @@ public class MovieCenter {
     }
 
 }
+
+//
+//1. Fix all compilation errors.
+//2. Make a commit
+//3. Run Test (if passed you are good)
+//4. if failed (ignore all test, ungnore one by one fix test one by one each)

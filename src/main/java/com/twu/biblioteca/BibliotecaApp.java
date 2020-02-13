@@ -20,9 +20,8 @@ public class BibliotecaApp {
 
 
     public BibliotecaApp() {
-        this.library = new Library();
         this.menu = new Menu(console);
-        this.movieCenter = new MovieCenter();
+      this.movieCenter = new MovieCenter();
 
     }
 

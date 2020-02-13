@@ -1,8 +1,9 @@
 package com.twu.biblioteca;
 
+import java.util.Iterator;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Item {
     private String name;
     private String authorName;
     private int publicationYear;

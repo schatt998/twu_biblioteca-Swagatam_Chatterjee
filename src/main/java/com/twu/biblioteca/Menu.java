@@ -8,9 +8,13 @@ import java.util.Scanner;
 
 public class Menu {
     private ArrayList<MenuOptions> menuOptions = new ArrayList<>();
-    private Library library = new Library();
+    private Library bookLibrary = new Library();
+    private Library movieLibrary=new Library();
+    private Library library=new Library();
     private boolean flag = true;
     private Console console;
+    private Movie movie;
+    private Book book;
 
     public Menu(Console console) {
         this.console = console;
@@ -18,11 +22,13 @@ public class Menu {
         menuOptions.add(MenuOptions.CHECKOUT);
         menuOptions.add(MenuOptions.RETURN);
         menuOptions.add(MenuOptions.QUIT);
+        menuOptions.add(MenuOptions.LIST_OF_MOVIES);
+        menuOptions.add(MenuOptions.CHECK_OUT_MOVIES);
 
     }
 
     public String getMenu() {
-        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n";
+        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5."+menuOptions.get(4)+"\n6."+menuOptions.get(5)+"\n";
     }
 
     private Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
@@ -30,6 +36,15 @@ public class Menu {
         String authorName = console.readLine();
         int publicationYear = Integer.parseInt(console.readLine());
         return new Book(bookName, authorName, publicationYear);
+
+    }
+    private Movie takeInput3(Scanner stringScanner, Scanner integerScanner) throws IOException {
+        String bookName = console.readLine();
+        String authorName = console.readLine();
+        String authorName2 = console.readLine();
+        String authorName3 = console.readLine();
+
+        return new Movie(bookName, authorName, authorName2,authorName3);
 
     }
 
@@ -42,26 +57,35 @@ public class Menu {
                     break;
                 case 2:
                     Book requestedBook = takeInput(stringScanner, integerScanner);
-                    console.print(checkout(requestedBook));
+                    console.print(checkoutBook(requestedBook));
                     break;
                 case 3:
                     Book checkedOutBook = takeInput(stringScanner, integerScanner);
-                    console.print(returnBook(checkedOutBook));
+                    console.print(returnItem(checkedOutBook));
                     break;
                 case 4:
                     flag = exitApplication();
                     break;
+                case 5:
+                    console.print(getMovieList());
+                    break;
+                case 6:
+                    Movie requestedMovie = takeInput3(stringScanner, integerScanner);
+                    console.print(checkoutMovie(requestedMovie));
+                    break;
+
+
                 default:
                     console.print("Please Select a Valid Option!");
             }
         }
     }
 
-    public String getBooksDetails() {
-
-        return library.getBookDetails();
-
-    }
+//    public String getBooksDetails() {
+//
+//        return library.getItemDetails();
+//
+//    }
 
 
     public String getInvalidChoiceNotification() {
@@ -69,12 +93,17 @@ public class Menu {
     }
 
 
-    public String returnBook(Book book) {
+    public String returnItem(Book book) {
         return library.returnBook(book);
     }
 
-    public String checkout(Book book) {
-        return library.checkout(book);
+    public String checkoutBook(Book book) {
+        return library.checkoutBook(book);
+
+
+    }
+    public String checkoutMovie(Movie book) {
+        return library.checkoutMovie(book);
 
 
     }
@@ -85,5 +114,8 @@ public class Menu {
 
     public String getBookList() {
         return library.getBookList();
+    }
+    public String getMovieList() {
+        return library.getMovieList();
     }
 }
