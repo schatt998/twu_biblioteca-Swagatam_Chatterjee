@@ -81,8 +81,14 @@ public class Menu {
                     }
                     break;
                 case 3:
-                    Book checkedOutBook = takeInput(stringScanner, integerScanner);
-                    console.print(returnItem(checkedOutBook));
+                    askAndGetUserCredentials();
+                    currentUser=getUser();
+                    if (library.logIn(user)) {
+                        console.print("Logged In Successful");
+                        console.print("Request Book Here");
+                        Book requestedBook = takeInput(stringScanner, integerScanner);
+                        console.print(returnItem(requestedBook,user));
+                    }
                     break;
                 case 4:
                     flag = exitApplication();
@@ -112,8 +118,8 @@ public class Menu {
     }
 
 
-    public String returnItem(Book book) {
-        return library.returnBook(book);
+    public String returnItem(Book book,User user) {
+        return library.returnBook(book,user);
     }
 
     public String checkoutBook(Book book,User user) {

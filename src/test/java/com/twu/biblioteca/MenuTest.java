@@ -124,7 +124,7 @@ class MenuTest {
         String expectedBookList = mathsBook.getName() + calculusBook.getName();
 
         menu.checkoutBook(calculusBook,user);
-        menu.returnItem(calculusBook);
+        menu.returnItem(calculusBook,user);
 
 
         String actualBookList = menu.getBookList();
@@ -142,7 +142,7 @@ class MenuTest {
 
 
         menu.checkoutBook(calculusBook,user);
-        String actualNotificationMessage = menu.returnItem(calculusBook);
+        String actualNotificationMessage = menu.returnItem(calculusBook,user);
 
 
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
@@ -158,7 +158,7 @@ class MenuTest {
 
 
         menu.checkoutBook(calculusBook,user);
-        String actualNotificationMessage = menu.returnItem(new Book("book", "author", 1233));
+        String actualNotificationMessage = menu.returnItem(new Book("book", "author", 1233),user);
 
 
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
@@ -175,6 +175,10 @@ class MenuTest {
 
         verify(mockConsole, times(1)).print("Enter Your Log-In ID and Password \n");
 
+
+    }
+    @Test
+    void shouldBeNotBeAbleToReturnABookIfItIsNotCheckedOutByThatUser(){
 
     }
 

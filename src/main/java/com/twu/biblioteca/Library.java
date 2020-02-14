@@ -74,10 +74,11 @@ public class Library {
             return "Sorry,that Movie is not available\n";
     }
 
-    public String returnBook(Book item) {
-        if (checkedOutItems.contains(item)) {
+    public String returnBook(Book item,User user) {
+        if (checkoutBookLog.containsKey(item)&&checkoutBookLog.containsValue(user)) {
             bookList.add(item);
             checkedOutItems.remove(item);
+            checkoutBookLog.remove(item);
             return "Thank you for returning the book\n";
         }
         return "That is not a valid book to return\n";

@@ -94,7 +94,7 @@ class LibraryTest {
         String expectedBookList = mathsBook.getName() + calculusBook.getName();
 
         library.checkoutBook(calculusBook,user);
-        library.returnBook(calculusBook);
+        library.returnBook(calculusBook,user);
 
 
         String actualBookList = library.getBookList();
@@ -113,7 +113,7 @@ class LibraryTest {
 
 
         library.checkoutBook(calculusBook,user);
-        String actualNotificationMessage = library.returnBook(calculusBook);
+        String actualNotificationMessage = library.returnBook(calculusBook,user);
 
 
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
@@ -129,7 +129,7 @@ class LibraryTest {
 
 
         library.checkoutBook(calculusBook,user);
-        String actualNotificationMessage = library.returnBook(new Book("book", "author", 1233));
+        String actualNotificationMessage = library.returnBook(new Book("book", "author", 1233),user);
 
 
         Assertions.assertEquals(expectedNotificationMessage, actualNotificationMessage);
