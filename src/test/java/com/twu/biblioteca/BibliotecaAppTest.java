@@ -31,7 +31,7 @@ class BibliotecaAppTest {
     @Test
     void shouldGetOptionInTheMenu() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(user);
-        String expectedMenu = "1.LIST_OF_BOOKS\n2.CHECKOUT\n3.RETURN\n4.QUIT\n5.LIST_OF_MOVIES\n6.CHECK_OUT_MOVIES\n";
+        String expectedMenu = "1.LIST_OF_BOOKS\n2.CHECKOUT\n3.RETURN\n4.QUIT\n5.LIST_OF_MOVIES\n6.CHECK_OUT_MOVIES\n7.RETURN_MOVIES\n";
 
         String actualMenu = bibliotecaApp.showMenu();
 

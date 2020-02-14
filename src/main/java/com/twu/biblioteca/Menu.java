@@ -24,12 +24,13 @@ public class Menu {
         menuOptions.add(MenuOptions.QUIT);
         menuOptions.add(MenuOptions.LIST_OF_MOVIES);
         menuOptions.add(MenuOptions.CHECK_OUT_MOVIES);
+        menuOptions.add(MenuOptions.RETURN_MOVIES);
 
     }
 
 
     public String getMenu() {
-        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5." + menuOptions.get(4) + "\n6." + menuOptions.get(5) + "\n";
+        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5." + menuOptions.get(4) + "\n6." + menuOptions.get(5) + "\n7."+menuOptions.get(6)+"\n";
     }
 
     private Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
@@ -100,9 +101,12 @@ public class Menu {
                     Movie requestedMovie = takeInput3(stringScanner, integerScanner);
                     console.print(checkoutMovie(requestedMovie));
                     break;
+                case 7:
+                    Movie movie = takeInput3(stringScanner, integerScanner);
+                    console.print(returnItem(movie));
+                    break;
 
-
-                default:
+                    default:
                     console.print("Please Select a Valid Option!");
             }
         }
@@ -120,6 +124,10 @@ public class Menu {
 
     public String returnItem(Book book,User user) {
         return library.returnBook(book,user);
+    }
+    public String returnItem(Movie movie)
+    {
+        return library.returnMovie(movie);
     }
 
     public String checkoutBook(Book book,User user) {
