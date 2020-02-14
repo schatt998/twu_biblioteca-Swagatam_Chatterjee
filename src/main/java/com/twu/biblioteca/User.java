@@ -1,15 +1,18 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class User{
     private String libraryId;
     private String password;
     private Boolean status;
+    private ArrayList<Book> borrowedBookList;
 
     public User(String libraryId, String password) {
         this.libraryId = libraryId;
         this.password = password;
+        this.borrowedBookList=new ArrayList<>();
     }
 
     public void logIn()
@@ -18,6 +21,9 @@ public class User{
     }
     public boolean getStatus(){
         return status;
+    }
+    public void addToTheBorrowedList(Book book){
+        borrowedBookList.add(book);
     }
 
     @Override

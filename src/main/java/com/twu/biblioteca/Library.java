@@ -60,6 +60,7 @@ public class Library {
         if (bookList.contains(item)) {
             checkoutBookLog.put(item,user);
             bookList.remove(item);
+            user.addToTheBorrowedList(item);
             return "Thank you! Enjoy the book\n";
         } else
             return "Sorry,that book is not available\n";

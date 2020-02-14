@@ -159,4 +159,15 @@ class LibraryTest {
 
     }
 
+    @Test
+    void shouldBeInTheUserBorrowedListOfUserIfABookIsCheckedOutByTheUser() {
+        Library library = new Library();
+        Book calculusBook = new Book("Calculus Made Easy", "Silvanus P.", 2003);
+        String expectedBookList = new Book("Problem Solving Strategies", "Arthur Engel", 2005).getName();
+
+        library.checkoutBook(calculusBook,user);
+        String actualBookList = library.getBookList();
+
+        Assertions.assertEquals(expectedBookList, actualBookList);
+    }
 }
