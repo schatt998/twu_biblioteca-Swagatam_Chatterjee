@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class User{
+public class User {
     private String libraryId;
     private String password;
     private Boolean status;
@@ -12,18 +12,23 @@ public class User{
     public User(String libraryId, String password) {
         this.libraryId = libraryId;
         this.password = password;
-        this.borrowedBookList=new ArrayList<>();
+        this.borrowedBookList = new ArrayList<>();
     }
 
-    public void logIn()
-    {
-           status=true;
+    public void logIn() {
+        status = true;
     }
-    public boolean getStatus(){
+
+    public boolean getStatus() {
         return status;
     }
-    public void addToTheBorrowedList(Book book){
+
+    public void addToTheBorrowedList(Book book) {
         borrowedBookList.add(book);
+    }
+
+    public void showProfile(Console console) {
+        console.print(libraryId);
     }
 
     @Override

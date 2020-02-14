@@ -25,12 +25,13 @@ public class Menu {
         menuOptions.add(MenuOptions.LIST_OF_MOVIES);
         menuOptions.add(MenuOptions.CHECK_OUT_MOVIES);
         menuOptions.add(MenuOptions.RETURN_MOVIES);
+        menuOptions.add(MenuOptions.SEE_YOUR_PROFILE);
 
     }
 
 
     public String getMenu() {
-        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5." + menuOptions.get(4) + "\n6." + menuOptions.get(5) + "\n7."+menuOptions.get(6)+"\n";
+        return "1." + menuOptions.get(0) + "\n" + "2." + menuOptions.get(1) + "\n" + "3." + menuOptions.get(2) + "\n" + "4." + menuOptions.get(3) + "\n5." + menuOptions.get(4) + "\n6." + menuOptions.get(5) + "\n7." + menuOptions.get(6) + "\n8." + menuOptions.get(7) + "\n";
     }
 
     private Book takeInput(Scanner stringScanner, Scanner integerScanner) throws IOException {
@@ -64,7 +65,7 @@ public class Menu {
             return false;
     }
 
-    public void action(Scanner stringScanner, Scanner integerScanner,User user) throws IOException {
+    public void action(Scanner stringScanner, Scanner integerScanner, User user) throws IOException {
         while (flag) {
             int choice = Integer.parseInt(console.readLine());
             switch (choice) {
@@ -73,22 +74,22 @@ public class Menu {
                     break;
                 case 2:
                     askAndGetUserCredentials();
-                    currentUser=getUser();
+                    currentUser = getUser();
                     if (library.logIn(user)) {
                         console.print("Logged In Successful");
                         console.print("Request Book Here");
                         Book requestedBook = takeInput(stringScanner, integerScanner);
-                        console.print(checkoutBook(requestedBook,user));
+                        console.print(checkoutBook(requestedBook, user));
                     }
                     break;
                 case 3:
                     askAndGetUserCredentials();
-                    currentUser=getUser();
+                    currentUser = getUser();
                     if (library.logIn(user)) {
                         console.print("Logged In Successful");
                         console.print("Request Book Here");
                         Book requestedBook = takeInput(stringScanner, integerScanner);
-                        console.print(returnItem(requestedBook,user));
+                        console.print(returnItem(requestedBook, user));
                     }
                     break;
                 case 4:
@@ -105,15 +106,22 @@ public class Menu {
                     Movie movie = takeInput3(stringScanner, integerScanner);
                     console.print(returnItem(movie));
                     break;
-
-                    default:
+                case 8:
+                    askAndGetUserCredentials();
+                    currentUser = getUser();
+                    if (library.logIn(user)) {
+                        user.showProfile(console);
+                    } else
+                        console.print("Must Be Logged In To See Your Profile Details");
+                    break;
+                default:
                     console.print("Please Select a Valid Option!");
             }
         }
     }
 
     private User getUser() throws IOException {
-        return new User(console.readLine(),console.readLine());
+        return new User(console.readLine(), console.readLine());
     }
 
 
@@ -122,16 +130,16 @@ public class Menu {
     }
 
 
-    public String returnItem(Book book,User user) {
-        return library.returnBook(book,user);
+    public String returnItem(Book book, User user) {
+        return library.returnBook(book, user);
     }
-    public String returnItem(Movie movie)
-    {
+
+    public String returnItem(Movie movie) {
         return library.returnMovie(movie);
     }
 
-    public String checkoutBook(Book book,User user) {
-        return library.checkoutBook(book,user);
+    public String checkoutBook(Book book, User user) {
+        return library.checkoutBook(book, user);
 
 
     }
