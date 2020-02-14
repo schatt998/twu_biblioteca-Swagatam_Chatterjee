@@ -143,4 +143,20 @@ class LibraryTest {
 
         Assertions.assertTrue(library.logIn(user));
     }
+    @Test
+    void shouldBeInMovieListIfAMovieIsReturned() {
+        Library library = new Library();
+        Movie movieNumberOne=new Movie("Hera Pheri", "Priyadarshan", "2000","10");
+        Movie movieNumberTwo=new Movie("Phir Hera Pheri", "Priyadarshan", "2006","10");
+       String expectedMovieList=library.getMovieList();
+        library.checkoutMovie(movieNumberTwo);
+        library.returnMovie(movieNumberTwo);
+
+
+        String actualMovieList = library.getMovieList();
+
+        Assertions.assertEquals(expectedMovieList,actualMovieList);
+
+    }
+
 }

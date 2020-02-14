@@ -9,7 +9,7 @@ public class Library {
 
     private ArrayList<Book> bookList;
     private ArrayList<Movie> movieList;
-    private ArrayList<Item> checkedOutItems = new ArrayList<>();
+    private ArrayList<Item> checkedOutMovies = new ArrayList<>();
     private HashMap<Book,User> checkoutBookLog=new HashMap<>();
     private ArrayList<User> validUserList=new ArrayList<>();
 
@@ -58,7 +58,6 @@ public class Library {
     }
     public String checkoutBook(Book item,User user) {
         if (bookList.contains(item)) {
-            checkedOutItems.add( item);
             checkoutBookLog.put(item,user);
             bookList.remove(item);
             return "Thank you! Enjoy the book\n";
@@ -67,7 +66,7 @@ public class Library {
     }
     public String checkoutMovie(Movie item) {
         if (movieList.contains(item)) {
-            checkedOutItems.add( item);
+            checkedOutMovies.add( item);
             movieList.remove(item);
             return "Thank you! Enjoy the Movie\n";
         } else
@@ -77,11 +76,20 @@ public class Library {
     public String returnBook(Book item,User user) {
         if (checkoutBookLog.containsKey(item)&&checkoutBookLog.containsValue(user)) {
             bookList.add(item);
-            checkedOutItems.remove(item);
             checkoutBookLog.remove(item);
             return "Thank you for returning the book\n";
         }
         return "That is not a valid book to return\n";
 
     }
+    public String returnMovie(Movie item) {
+        if (checkedOutMovies.contains(item)) {
+            checkedOutMovies.remove(item);
+            movieList.add(item);
+            return "Thank you for returning the book\n";
+        }
+        return "That is not a valid book to return\n";
+
+    }
+
 }
